@@ -5,6 +5,7 @@ module RailsApiDoc
   class Engine < ::Rails::Engine
     isolate_namespace RailsApiDoc
 
-    initializer "api_doc.assets.precompile"
+    initializer "api_doc.assets.precompile" do |app|
+    end
   end
 end
