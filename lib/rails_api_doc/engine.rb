@@ -3,7 +3,7 @@ require 'jquery-rails'
 
 module RailsApiDoc
   class Engine < ::Rails::Engine
-    isolate_namespace ResqueWeb
+    isolate_namespace RailsApiDoc
 
     # initializer "api_doc.assets.precompile" do |app|
       # app.config.assets.precompile += %w(resque_web/*.png)
