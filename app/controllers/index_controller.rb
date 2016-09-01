@@ -1,5 +1,5 @@
 module RailsApiDoc
-  class IndexController < ActionController::Base
+  class IndexController < ApplicationController
 
     def index
     end
