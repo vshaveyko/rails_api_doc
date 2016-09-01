@@ -4,6 +4,5 @@ module RailsApiDoc
     protect_from_forgery
     helper :all
 
-  
   end
 end
