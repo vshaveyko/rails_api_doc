@@ -1,8 +1,5 @@
 module RailsApiDoc
   class ApplicationController < ActionController::Base
-
-    protect_from_forgery
-    # helper :all
-
+    protect_from_forgery with: :exception
   end
 end

@@ -1,11 +1,21 @@
 require 'twitter-bootstrap-rails'
 require 'jquery-rails'
+require 'slim'
 
-module RailsApiDoc
-  class Engine < ::Rails::Engine
-    isolate_namespace RailsApiDoc
+require_relative 'types'
+require_relative 'controller'
+require_relative 'controller/parameter'
+require_relative 'controller/parameter/repository'
 
-    initializer "api_doc.assets.precompile" do |app|
-    end
+class RailsApiDoc::Engine < ::Rails::Engine
+  isolate_namespace RailsApiDoc
+
+  initializer "api_doc.assets.precompile" do |app|
+  end
+
+  ActionController::Base.class_eval do
+
+     extend RailsApiDoc::Controller::Parameter
+
   end
 end
