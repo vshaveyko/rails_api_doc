@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 module RailsApiDoc::Controller::Parameter
 
-  VALID_KEYS = [:type, :required, :enum] #:nodoc:
+  VALID_KEYS = [:type, :required, :enum].freeze #:nodoc:
 
   # Use parameter in controller to defined REQUEST parameter.
-  # Adds it to repository: RailsApiDoc::ParameterRepository
+  # Adds it to repository: RailsApiDoc::Controller::Parameter::Repository
   def parameter(name, options, &block)
-    if repo.key?(name)
-      raise ArgumentError.new('Parameter already defined.')
-    end
+    raise ArgumentError, 'Parameter already defined.' if repo.key?(name)
 
     validate_options(options, block_given?)
 
@@ -17,24 +17,17 @@ module RailsApiDoc::Controller::Parameter
   private
 
   def validate_options(options, block_given)
-    if options.nil? or options.empty?
+    if options.nil? || options.empty?
       raise ArgumentError, 'Empty options passed.'
     end
 
     options.assert_valid_keys(VALID_KEYS)
 
-    unless options[:type].in?(RailsApiDoc::Types::ACCEPTED_TYPES)
-      raise ArgumentError.new("Wrong type: #{options[:type].inspect}. " \
-                              "Correct types are: #{RailsApiDoc::Types::ACCEPTED_TYPES}.")
-    end
+    Param.valid_type?(options[:type])
 
-    unless options[:enum].nil? or options[:enum].is_a?(Array)
-      raise ArgumentError.new('Enum must be an array.')
-    end
+    Param.valid_enum?(options[:enum])
 
-    if options[:type] == Object and not block_given
-      raise ArgumentError.new('Empty object passed.')
-    end
+    Param.valid_nested?(options[:type], block_given)
   end
 
   # default repo can be reassigned to deal with nested parameters
@@ -44,11 +37,11 @@ module RailsApiDoc::Controller::Parameter
   end
 
   def define_parameter(name, parameter_data, &block)
-    if parameter_data[:type] == Object
-      repo[name] = nested_parameter(parameter_data, &block)
-    else
-      repo[name] = parameter_data
-    end
+    repo[name] = if Param.valid_nested?(parameter_data[:type], block_given?)
+                   nested_parameter(parameter_data, &block)
+                 else
+                   parameter_data
+                 end
   end
 
   def nested_parameter(parameter_data)

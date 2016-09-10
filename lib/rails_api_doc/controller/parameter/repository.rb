@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
 class RailsApiDoc::Controller::Parameter::Repository
 
-  @repo = Hash.new { |hsh, key| hsh[key] = {} }
+  @repo = Hash.new { |hsh, key| hsh[key] = Param.new }
 
   class << self
 
