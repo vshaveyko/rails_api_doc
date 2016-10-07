@@ -1,0 +1,46 @@
+- headers = [:type, :enum]
+- col_num = 12 / (headers.length + 1)
+.row.title[href=(locals[:model].to_s + '.request')]
+  div[class="col-md-#{col_num}"] Parameter
+
+  - headers.each do |param_header|
+    div[class="col-md-#{col_num}"] = param_header
+
+- locals[:params].each do |param_key, param_values|
+  .row.blue
+    div[class="col-md-#{col_num}"] #{param_key}#{'*' if param_values.required?}
+    - if param_values.nested?
+      .table-column[class="col-md-#{12 - col_num}"]
+        = render 'request_api_table', locals: { model: param_values[:model] || param_key, params: param_values[:nested] }
+    - else
+      - headers.each do |param_header|
+        .table-column[class="col-md-#{col_num}"] = param_values[param_header]
+  / .table-responsive#1resp
+    / table.table.table-bordered.table-striped
+      / thead
+        / tr
+          / th
+          / th
+            / |  Extra small devices
+            / small
+              / | Phones (<768px)
+          / th
+            / |  Small devices
+            / small
+              / | Tablets (≥768px)
+          / th
+            / |  Medium devices
+            / small
+              / | Desktops (≥992px)
+          / th
+            / |  Large devices
+            / small
+              / | Desktops (≥1200px)
+      / tbody
+        / tr
+          / th.text-nowrap[scope="row"]
+            / | Grid behavior
+          / td
+            / | Horizontal at all times
+          / td[colspan="3"]
+            / | Collapsed to start, horizontal above breakpoints

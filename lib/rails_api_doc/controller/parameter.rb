@@ -2,7 +2,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 module RailsApiDoc::Controller::Parameter
 
-  VALID_KEYS = [:type, :required, :enum].freeze #:nodoc:
+  VALID_KEYS = [:type, :required, :enum, :model].freeze #:nodoc:
 
   # Use parameter in controller to defined REQUEST parameter.
   # Adds it to repository: RailsApiDoc::Controller::Parameter::Repository
@@ -23,11 +23,11 @@ module RailsApiDoc::Controller::Parameter
 
     options.assert_valid_keys(VALID_KEYS)
 
-    Param.valid_type?(options[:type])
+    Repository::Param.valid_type?(options[:type])
 
-    Param.valid_enum?(options[:enum])
+    Repository::Param.valid_enum?(options[:enum])
 
-    Param.valid_nested?(options[:type], block_given)
+    Repository::Param.valid_nested?(options[:type], block_given)
   end
 
   # default repo can be reassigned to deal with nested parameters
@@ -37,19 +37,21 @@ module RailsApiDoc::Controller::Parameter
   end
 
   def define_parameter(name, parameter_data, &block)
-    repo[name] = if Param.valid_nested?(parameter_data[:type], block_given?)
-                   nested_parameter(parameter_data, &block)
-                 else
-                   parameter_data
-                 end
+    repo[name] = \
+      if Repository::Param.valid_nested?(parameter_data[:type], block_given?)
+        Repository::Param.new(name, nested_parameter(parameter_data, &block))
+      else
+        Repository::Param.new(name, parameter_data)
+      end
   end
 
   def nested_parameter(parameter_data)
+    _backup_repo = @repo
     @repo = {}
     yield
-    parameter_data.merge!(nested: @repo)
+    parameter_data.merge(nested: @repo)
   ensure
-    @repo = nil
+    @repo = _backup_repo
   end
 
 end

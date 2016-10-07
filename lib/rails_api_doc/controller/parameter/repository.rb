@@ -3,16 +3,16 @@
 # :nodoc:
 class RailsApiDoc::Controller::Parameter::Repository
 
-  @repo = Hash.new { |hsh, key| hsh[key] = Param.new }
+  @repo = Hash.new { |hsh, key| hsh[key] = Hash.new { |hsh, key| hsh[key] = Param.new(key) } }
 
   class << self
 
-    def method_missing(name, *args)
-      return @repo.send(name, *args) if respond_to_missing?(name)
+    def method_missing(name, *args, &block)
+      return @repo.send(name, *args, &block) if respond_to_missing?(name)
       super
     end
 
-    def respond_to_missing?(method)
+    def respond_to_missing?(method, *)
       @repo.respond_to?(method)
     end
 

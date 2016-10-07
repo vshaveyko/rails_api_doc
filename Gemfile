@@ -20,3 +20,5 @@ gem 'pry-stack_explorer'
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
+
+gem 'has_scope'

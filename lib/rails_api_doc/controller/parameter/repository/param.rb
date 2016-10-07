@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
-class RailsApiDoc::Controller::Parameter::Param
+class RailsApiDoc::Controller::Parameter::Repository::Param
 
-  ACCEPTED_TYPES = [String, Integer, Object, Array, :enum].freeze
+  ACCEPTED_TYPES = [String, Integer, Object, Array, DateTime, :enum, :model].freeze
+
+  # @type - type to check
+  def self.accepted_nested_type?(type)
+    type == Object || type == :model
+  end
 
   def self.valid_type?(type)
     return if type.in?(ACCEPTED_TYPES)
@@ -16,16 +21,18 @@ class RailsApiDoc::Controller::Parameter::Param
   end
 
   def self.valid_nested?(type, block_given)
-    return unless type == Object && !block_given
+    return false unless accepted_nested_type?(type)
+    return true if block_given
     raise ArgumentError, 'Empty object passed.'
   end
 
-  def initialize
-    @store = {}
+  def initialize(name, store)
+    @name = name
+    @store = store
   end
 
   def nested?
-    @store[:type] == Object
+    self.class.accepted_nested_type?(@store[:type])
   end
 
   def required?

@@ -62,3 +62,1928 @@ Migrating to CreateComments (20160902193541)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_article_id' AND type='index'
 [0m
+Started GET "/" for 127.0.0.1 at 2016-09-15 08:22:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:22:48 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (29.2ms)
+Completed 200 OK in 543ms (Views: 542.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:35:21 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (38.8ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:35:30 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (20.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (34.0ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `models' for #<#<Class:0x007f063a14d6f0>:0x007f063a646080>):
+    2: 
+    3:   nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs(data-spy="affix" data-offset-top="60")
+    4:    ul.nav.bs-docs-sidenav
+    5:     - models.each do |model|
+    6:       li
+    7:         a[href=('#' + model.to_s)] = model.to_s
+    8:         ul.nav
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim:5:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index__side_menu_slim__2100326927917558973_69832360498560'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:343:in `render_partial'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:311:in `block in render'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+actionview (5.0.0.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:189:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__3844698950854058828_69832363095560'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.4ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:36:40 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (34336.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (96247.0ms)
+Completed 500 Internal Server Error in 96249ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `models' for #<#<Class:0x007f063a14d6f0>:0x007f063a287610>):
+    3:   nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs(data-spy="affix" data-offset-top="60")
+    4:    ul.nav.bs-docs-sidenav
+    5:      - locals[:models].each do |model|
+    6:       li
+    7:         a[href=('#' + model.to_s)] = model.to_s
+    8:         ul.nav
+    9:           li
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim:6:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index__side_menu_slim__2100326927917558973_69832362684500'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:343:in `render_partial'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:311:in `block in render'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+actionview (5.0.0.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:190:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__3844698950854058828_69832361138880'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.3ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:38:22 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (21.9ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:40:09 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (19.4ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:40:12 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (19.7ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:40:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (36.8ms)
+Completed 200 OK in 320ms (Views: 319.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:42:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.4ms)
+Completed 200 OK in 339ms (Views: 338.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:42:12 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (42.0ms)
+Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:42:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.8ms)
+Completed 200 OK in 314ms (Views: 312.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:43:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.3ms)
+Completed 200 OK in 363ms (Views: 362.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:43:46 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (5.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (50.1ms)
+Completed 200 OK in 79ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:43:48 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.6ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:43:49 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (17.4ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:43:49 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (17.1ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:49:15 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed   in 13131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:49:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RailsApiDoc::Controller::Parameter::Repository::Param):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.2ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.9ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:53:34 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RailsApiDoc::Controller::Parameter::Repository::Param):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.1ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:53:35 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RailsApiDoc::Controller::Parameter::Repository::Param):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.6ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:53:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RailsApiDoc::Controller::Parameter::Repository::Param):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.6ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.3ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:55:07 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RailsApiDoc::Controller::Parameter::Repository::Param):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:57:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `accepted_nested_type?' for RailsApiDoc::Controller::Parameter::Repository::Param:Class
+Did you mean?  accepted_nested_type):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.3ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:58:22 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `accepted_nested_type?' for RailsApiDoc::Controller::Parameter::Repository::Param:Class
+Did you mean?  accepted_nested_type):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.6ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:58:23 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `accepted_nested_type?' for RailsApiDoc::Controller::Parameter::Repository::Param:Class
+Did you mean?  accepted_nested_type):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.6ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:58:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Empty object passed.):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.7ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.3ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 08:58:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 11205ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Empty object passed.):
+  
+app/controllers/authors_controller.rb:6:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.0ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:01:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.6ms)
+Completed 200 OK in 365ms (Views: 346.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-15 09:31:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:31:47 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (7.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.2ms)
+Completed 200 OK in 353ms (Views: 341.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:50:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (20.6ms)
+Completed 200 OK in 325ms (Views: 307.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:50:55 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.8ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:51:59 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (12.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (5.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (26.8ms)
+Completed 200 OK in 57ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:52:26 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (9.7ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:52:35 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (10.9ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:52:41 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (6.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (7.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.6ms)
+Completed 200 OK in 60ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-15 09:52:49 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (8.8ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-20 09:46:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:46:56 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (20.1ms)
+Completed 200 OK in 371ms (Views: 357.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:48:36 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (6.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (7.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (23.4ms)
+Completed 200 OK in 66ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:48:39 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (4.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (7.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (16.3ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:48:53 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (13.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (6.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (31.9ms)
+Completed 200 OK in 63ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:49:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (19.2ms)
+Completed 200 OK in 320ms (Views: 304.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:49:29 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (193325.7ms)
+Completed   in 193329ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:55:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (49828.7ms)
+Completed   in 49850ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:55:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (15.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (34.9ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `model' for #<#<Class:0x000000018a53a8>:0x00000001892aa0>):
+    1: - headers = [:type, :required, :enum]
+    2: .bs-docs-section
+    3:   h2[id=(model.to_s)] = model.to_s
+    4:   p Request
+    5:     .table-responsive[href=(model.to_s + '.request')]
+    6:       table.table.table-bordered.table-striped
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim:3:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index__api_table_slim___1924964385712844327_34536340'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:343:in `render_partial'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:311:in `block in render'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+actionview (5.0.0.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:8:in `block in __home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__1242165536923457124_12926460'
+/home/vadim/dev/rails_api_doc/lib/rails_api_doc/controller/parameter/repository.rb:11:in `each'
+/home/vadim/dev/rails_api_doc/lib/rails_api_doc/controller/parameter/repository.rb:11:in `method_missing'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:7:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__1242165536923457124_12926460'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.8ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.7ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:57:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (23.5ms)
+Completed 200 OK in 360ms (Views: 343.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 09:58:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (3.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (2.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.6ms)
+Completed 200 OK in 321ms (Views: 303.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 10:12:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (489411.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (489429.7ms)
+Completed   in 489450ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-20 21:47:49 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:47:52 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (147970.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (147991.4ms)
+Completed   in 148010ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:50:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (155116.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (155133.7ms)
+Completed   in 155154ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:53:02 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (38932.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (38950.3ms)
+Completed   in 38970ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:53:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (194705.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (194721.6ms)
+Completed   in 194742ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:57:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed   in 15234ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:57:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant AuthorsController::Datetime):
+  
+app/controllers/authors_controller.rb:13:in `block (2 levels) in <class:AuthorsController>'
+app/controllers/authors_controller.rb:12:in `block in <class:AuthorsController>'
+app/controllers/authors_controller.rb:8:in `<class:AuthorsController>'
+app/controllers/authors_controller.rb:3:in `<top (required)>'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.2ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.8ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:58:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (40896.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (40914.8ms)
+Completed   in 40936ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 21:59:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed   in 136255ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 22:01:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (71548.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (71565.4ms)
+Completed   in 71587ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-20 22:02:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Started GET "/" for 127.0.0.1 at 2016-09-21 22:23:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:23:01 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed   in 249355ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-21 22:27:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:27:33 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:27:33 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (50594.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (7.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (50612.7ms)
+Completed 200 OK in 50937ms (Views: 50934.7ms | ActiveRecord: 0.7ms)
+
+
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (320573.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (320594.8ms)
+Completed   in 320615ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:32:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (5.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (32.4ms)
+Completed 200 OK in 373ms (Views: 351.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:34:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (42.1ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `locals' for #<#<Class:0x00000001608aa0>:0x000000015f4910>
+Did you mean?  locale
+               locale=):
+     6: 
+     7:       - @repository.each do |model, params|
+     8:       .bs-docs-section
+     9:         h2[id=(locals[:model].to_s)] = locals[:model].to_s
+    10:         p
+    11:           | Request
+    12:           = render 'api_table', locals: { model: model, params: params }
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:9:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim___3511053014237513520_11556820'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.1ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.1ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:34:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (43.8ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `model' for #<#<Class:0x00000001fae488>:0x00000001f9f910>):
+     6: 
+     7:       - @repository.each do |model, params|
+     8:       .bs-docs-section
+     9:         h2[id=(model.to_s)] = model.to_s
+    10:         p
+    11:           | Request
+    12:           = render 'api_table', locals: { model: model, params: params }
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:9:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__1959341801702648553_16629720'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.6ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.8ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:34:41 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (4.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.8ms)
+Completed 200 OK in 406ms (Views: 387.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:40:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (2.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.8ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Expected attribute
+  /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim, Line 5, Column 26
+    div[class="col-md-" + #{col_num}] = param_header
+                          ^
+):
+    2: - col_num = headers.length
+    3: .row[href=(locals[:model].to_s + '.request')]
+    4:   - headers.each do |param_header|
+    5:     div[class="col-md-" + #{col_num}] = param_header
+    6: 
+    7:   - locals[:params].each do |param_key, param_values|
+    8:     .row
+  
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim:5
+slim (3.0.7) lib/slim/parser.rb:513:in `syntax_error!'
+slim (3.0.7) lib/slim/parser.rb:451:in `parse_attributes'
+slim (3.0.7) lib/slim/parser.rb:352:in `parse_tag'
+slim (3.0.7) lib/slim/parser.rb:248:in `parse_line_indicators'
+slim (3.0.7) lib/slim/parser.rb:192:in `parse_line'
+slim (3.0.7) lib/slim/parser.rb:95:in `call'
+temple (0.7.7) lib/temple/engine.rb:50:in `block in call'
+temple (0.7.7) lib/temple/engine.rb:50:in `each'
+temple (0.7.7) lib/temple/engine.rb:50:in `inject'
+temple (0.7.7) lib/temple/engine.rb:50:in `call'
+temple (0.7.7) lib/temple/mixins/template.rb:10:in `compile'
+temple (0.7.7) lib/temple/templates/rails.rb:8:in `call'
+actionview (5.0.0.1) lib/action_view/template.rb:283:in `compile'
+actionview (5.0.0.1) lib/action_view/template.rb:258:in `block (2 levels) in compile!'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:350:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:257:in `block in compile!'
+actionview (5.0.0.1) lib/action_view/template.rb:245:in `synchronize'
+actionview (5.0.0.1) lib/action_view/template.rb:245:in `compile!'
+actionview (5.0.0.1) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:343:in `render_partial'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:311:in `block in render'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+actionview (5.0.0.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:12:in `block in __home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__2302574848093355797_14157400'
+/home/vadim/dev/rails_api_doc/lib/rails_api_doc/controller/parameter/repository.rb:11:in `each'
+/home/vadim/dev/rails_api_doc/lib/rails_api_doc/controller/parameter/repository.rb:11:in `method_missing'
+/home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim:7:in `__home_vadim_dev_rails_api_doc_app_views_rails_api_doc_index_index_slim__2302574848093355797_14157400'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.0.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.0.0.1) lib/action_controller/metal/renderers.rb:144:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+activesupport (5.0.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+actionpack (5.0.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `public_send'
+railties (5.0.0.1) lib/rails/railtie.rb:193:in `method_missing'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/vadim/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.1ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.4ms)
+  Rendered /home/vadim/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.1ms)
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:41:28 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.4ms)
+Completed 200 OK in 350ms (Views: 331.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:43:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.6ms)
+Completed 200 OK in 343ms (Views: 324.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:44:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.7ms)
+Completed 200 OK in 339ms (Views: 321.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:44:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.5ms)
+Completed 200 OK in 346ms (Views: 327.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:46:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (8.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (35.2ms)
+Completed 200 OK in 368ms (Views: 344.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:46:38 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (5.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (16.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (5.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (35.4ms)
+Completed 200 OK in 66ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:47:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (6.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (32.6ms)
+Completed 200 OK in 359ms (Views: 332.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:47:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (31.1ms)
+Completed 200 OK in 341ms (Views: 322.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:48:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.6ms)
+Completed 200 OK in 335ms (Views: 316.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:49:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (4.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (32.6ms)
+Completed 200 OK in 399ms (Views: 377.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:51:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (9.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (5.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (45.4ms)
+Completed 200 OK in 429ms (Views: 400.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:51:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.3ms)
+Completed 200 OK in 354ms (Views: 335.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:51:53 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (12.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (9.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (8.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (45.0ms)
+Completed 200 OK in 86ms (Views: 84.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:07 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (17.6ms)
+Completed 200 OK in 48ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:09 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (20.6ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (27.9ms)
+Completed 200 OK in 349ms (Views: 331.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:19 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (13.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (8.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (9.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (43.7ms)
+Completed 200 OK in 80ms (Views: 77.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:44 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.8ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (22.9ms)
+Completed 200 OK in 56ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:46 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (6.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (24.5ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:53:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_api_table.slim (5.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.2ms)
+Completed 200 OK in 339ms (Views: 318.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 22:58:20 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+Completed   in 193454ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:01:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (8.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (7.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (4.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (35.4ms)
+Completed 200 OK in 378ms (Views: 356.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:01:49 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (7.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (5.6ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (29.4ms)
+Completed 200 OK in 343ms (Views: 324.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:02:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (5.7ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (29.1ms)
+Completed 200 OK in 369ms (Views: 349.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:02:11 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (3.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.1ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (12.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (13.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (38.4ms)
+Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:02:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (2.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (5.9ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (3.3ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (28.7ms)
+Completed 200 OK in 340ms (Views: 321.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api_doc" for 127.0.0.1 at 2016-09-21 23:03:33 +0300
+Processing by RailsApiDoc::IndexController#index as HTML
+  Rendering /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_title.slim (5.5ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (0.4ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (1.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_request_api_table.slim (10.2ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/_side_menu.slim (15.0ms)
+  Rendered /home/vadim/dev/rails_api_doc/app/views/rails_api_doc/index/index.slim within layouts/rails_api_doc/application (38.3ms)
+Completed 200 OK in 70ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+

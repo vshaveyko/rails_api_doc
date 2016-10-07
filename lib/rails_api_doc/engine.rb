@@ -11,6 +11,7 @@ require_relative 'controller'
 require_relative 'controller/strong_params'
 require_relative 'controller/parameter'
 require_relative 'controller/parameter/repository'
+require_relative 'controller/parameter/repository/param'
 
 class RailsApiDoc::Engine < ::Rails::Engine
   isolate_namespace RailsApiDoc
