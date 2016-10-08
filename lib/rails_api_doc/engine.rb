@@ -14,15 +14,16 @@ require_relative 'controller/parameter/repository'
 require_relative 'controller/parameter/repository/param'
 
 class RailsApiDoc::Engine < ::Rails::Engine
+
   isolate_namespace RailsApiDoc
 
-  initializer 'api_doc.assets.precompile' do |app|
+  initializer 'rails_api_doc.assets.precompile' do |app|
+    app.config.assets.precompile += %w(application.css application.js)
   end
 
   ActionController::Base.class_eval do
-
     include RailsApiDoc::Controller::StrongParams
     extend RailsApiDoc::Controller::Parameter
-
   end
+
 end

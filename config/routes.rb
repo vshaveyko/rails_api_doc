@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 # Match IDs with dots in them
-id_pattern = /[^\/]+/
+# id_pattern = /[^\/]+/
 
 RailsApiDoc::Engine.routes.draw do
+  resource :api_doc
 
-  root to: 'index#index'
-
+  root to: 'api_docs#index'
 end

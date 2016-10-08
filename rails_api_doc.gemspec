@@ -24,9 +24,10 @@ Gem::Specification.new do |spec|
     raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = Dir['{app,config,db,lib}/**/*', 'README.md']
   spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec
+                       .files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.12'
@@ -35,7 +36,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'actionpack'
   spec.add_dependency 'twitter-bootstrap-rails'
   spec.add_dependency 'jquery-rails'
-  spec.add_dependency 'bootstrap-table-rails'
   spec.add_dependency 'sass-rails'
   spec.add_dependency 'coffee-rails'
   spec.add_dependency 'slim'
