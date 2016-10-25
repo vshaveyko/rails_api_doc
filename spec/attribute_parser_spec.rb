@@ -1,51 +1,45 @@
-require 'spec_helper'
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
+require 'rails_helper'
 
 service = RailsApiDoc::Controller::AttributeParser
 describe service do
-
-  it 'correctly parses enum array attributes' do
+  it 'parses numbers correctlyu' do
     given = {
-      enum: '[1,2,3]',
+      enum: '1,2,3',
       type: 'Who+cares'
     }
 
     expected = {
       type: :enum,
-      enum: [1,2,3]
+      enum: [1, 2, 3]
     }
 
     expect(service.parse_attributes(given)).to eq expected
   end
 
-  it 'raises if not array passed' do
+  it 'parses words' do
     given = {
-      enum: "WrongEnumValue"
-    }
-
-    expect(service.parse_attributes(given)).to raise_error ArgumentError
-  end
-
-  it 'deletes everything after number if array passed is numberlike' do
-    given = {
-      enum: "[23enum1, 34enum2]"
+      enum: 'EnumValue',
+      type: ''
     }
 
     expected = {
-      type: :enum,
-      enum: [23, 34]
+      enum: ['EnumValue'],
+      type: :enum
     }
 
     expect(service.parse_attributes(given)).to eq expected
   end
 
-  it 'correctly parses enum array of string attributes passed without quotes' do
+  it 'parses commaseparated values' do
     given = {
-      enum: "[enum1, enum2]"
+      enum: '23enum1, 34enum2'
     }
 
     expected = {
       type: :enum,
-      enum: ['enum1', 'enum2']
+      enum: ['23enum1', ' 34enum2']
     }
 
     expect(service.parse_attributes(given)).to eq expected
@@ -53,12 +47,12 @@ describe service do
 
   it 'correctly parses enum array of string attributes' do
     given = {
-      enum: "['enum1', 'enum2']"
+      enum: "['enum1','enum2']"
     }
 
     expected = {
       type: :enum,
-      enum: ['enum1', 'enum2']
+      enum: %w(['enum1' 'enum2'])
     }
 
     expect(service.parse_attributes(given)).to eq expected
@@ -86,10 +80,7 @@ describe service do
       'Object' => Object,
       'Array' => Array,
       'DateTime' => DateTime
-    }
-
-    correct_classes.each do |correct_class_name, correct_class|
-
+    }.each do |correct_class_name, correct_class|
       given = {
         type: correct_class_name
       }
@@ -107,13 +98,12 @@ describe service do
       type: 'WrongClass'
     }
 
-    expect(service.parse_attributes(given)).to raise_error ArgumentError
+    expect { service.parse_attributes(given) }.to raise_error NameError
 
     given = {
       type: 'Wr+-/asCl'
     }
 
-    expect(service.parse_attributes(given)).to raise_error ArgumentError
+    expect { service.parse_attributes(given) }.to raise_error NameError
   end
-
 end
