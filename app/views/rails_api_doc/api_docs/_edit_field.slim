@@ -1,0 +1,9 @@
+.row
+  = form_tag(api_doc_path, method: 'post', remote: true, class: 'form-horizontal') do
+    - ([:name] + headers).each do |field_name|
+      div.field(class="col-md-#{col_num - 1}")
+        / Add parameter name second argument
+        = text_field_tag field_name, nil, placeholder: field_name, class: 'form-control'
+
+    div.actions(class="col-md-#{col_num - 1}")
+      = button_tag 'Add table parameter', class: 'btn btn-primary'
