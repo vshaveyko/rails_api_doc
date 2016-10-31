@@ -1,9 +1,12 @@
-- headers = [:type, :enum]
-- col_num = 12 / (headers.length + 1)
+- @request_headers = { enum: 'Values(if type is enum)' }
+
+div[href=(locals[:model].to_s + '.request') style="--row-count: #{@request_headers.length}"]
+  = render 'shared/table', locals: { model: locals[:model], rows: locals[:params] }
 
 / .row
   / = form_tag(api_doc_path, method: 'post', remote: true, class: 'form-horizontal') do
-    / - ([:name] + headers).each do |field_name|
+
+/ - ([:name] + headers).each do |field_name|
       / div.field(class="col-md-#{col_num - 1}")
         / / Add parameter name second argument
         / = text_field_tag field_name, nil, placeholder: field_name, class: 'form-control'
@@ -12,29 +15,29 @@
       / = button_tag 'Add table parameter', class: 'btn btn-primary'
 / = render 'edit_field'
 
-.row.title[href=(locals[:model].to_s + '.request')]
-  div.nopadding[class="col-md-#{col_num}"]
-    = link_to new_api_doc_path, class: 'btn btn-primary btn-xs' do
-      span.glyphicon.glyphicon-plus
-    | Parameter
-
-  - headers.each do |param_header|
-    div.nopadding[class="col-md-#{col_num}"] = param_header
-
-- locals[:params].each do |param_key, param_values|
-  .row.blue
-    div.nopadding[class="col-md-#{col_num}" style="white-space: nowrap;"]
-      - unless param_values.nested?
-        = link_to edit_api_doc_path, class: 'btn btn-primary btn-xs' do
-          span.glyphicon.glyphicon-pencil
-        = link_to api_doc_path(param_key: param_key, nesting: locals[:nesting]), class: 'btn btn-primary btn-xs', method: :delete do
-          span.glyphicon.glyphicon-minus
-      | #{param_key}#{'*' if param_values.required?}
-
-    - if param_values.nested?
-      .table-column[class="col-md-#{12 - col_num}"]
-        - nested_params = locals[:nesting].to_a.push(locals[:model])
-        = render 'request_api_table', locals: { model: param_values[:model] || param_key, params: param_values[:nested], nesting: nested_params }
-    - else
-      - headers.each do |param_header|
-        .table-column[class="col-md-#{col_num}"] = param_values[param_header]
+/ .table
+  / div.nopadding[class="col-md-#{col_num}"]
+    / = link_to new_api_doc_path, class: 'btn btn-primary btn-xs' do
+      / span.glyphicon.glyphicon-plus
+    / | Parameter
+/
+  / - headers.each do |param_header|
+    / div.nopadding[class="col-md-#{col_num}"] = param_header
+/
+/ - locals[:params].each do |param_key, param_values|
+  / .row.blue
+    / div.nopadding[class="col-md-#{col_num}" style="white-space: nowrap;"]
+      / - unless param_values.nested?
+        / = link_to edit_api_doc_path, class: 'btn btn-primary btn-xs' do
+          / span.glyphicon.glyphicon-pencil
+        / = link_to api_doc_path(param_key: param_key, nesting: locals[:nesting]), class: 'btn btn-primary btn-xs', method: :delete do
+          / span.glyphicon.glyphicon-minus
+      / | #{param_key}#{'*' if param_values.required?}
+/
+    / - if param_values.nested?
+      / .table-column[class="col-md-#{12 - col_num}"]
+        / - nested_params = locals[:nesting].to_a.push(locals[:model])
+        / = render 'request_api_table', locals: { model: param_values[:model] || param_key, params: param_values[:nested], nesting: nested_params }
+    / - else
+      / - headers.each do |param_header|
+        / .table-column[class="col-md-#{col_num}"] = param_values[param_header]

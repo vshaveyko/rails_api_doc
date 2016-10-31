@@ -10,11 +10,12 @@ class AuthorsController < ApplicationController
   parameter :articles, type: :model, model: Article do
     parameter :title, type: String
     parameter :body, type: String, required: true
-    parameter :rating, type: :enum, enum: [1,2,3]
+    parameter :rating, type: :enum, enum: [1, 2, 3]
     parameter :data, type: :model, model: Datum do
       parameter :creation_date, type: DateTime
       parameter :comment, type: String
     end
   end
+  parameter :test, type: String, required: true
 
 end

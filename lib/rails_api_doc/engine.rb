@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require 'action_controller'
 require 'action_view'
-require 'twitter-bootstrap-rails'
+# require 'twitter-bootstrap-rails'
 require 'jquery-rails'
 require 'slim'
 
@@ -19,7 +19,7 @@ class RailsApiDoc::Engine < ::Rails::Engine
   isolate_namespace RailsApiDoc
 
   initializer 'rails_api_doc.assets.precompile' do |app|
-    app.config.assets.precompile += %w(application.css application.js)
+    app.config.assets.precompile += %w(application.css application.js api_doc.js rails_api_doc/api_doc.js)
   end
 
   ActionController::Base.class_eval do

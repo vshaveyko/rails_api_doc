@@ -1,0 +1,20 @@
+- nesting = locals[:nesting].to_a.push(locals[:model])
+
+div.flex-table
+  div.flex-line.row
+    / Угловой елемент
+    div.flex-item Parameter
+    div.flex-item Type
+    - @request_headers.each_value do |header|
+      div.flex-item = header
+  - locals[:rows].each do |row_name, row_values|
+    div.flex-line.row
+      div.flex-item  #{row_name} #{'*' if row_values.required?}
+      - if row_values.nested?
+        div.flex-item.next-is-nested #{row_values[:model]}(Nested)
+      - else
+        div.flex-item #{row_values[:type]}
+      - @request_headers.each_key do |header_alias|
+        div.flex-item = row_values[header_alias]
+    - if row_values.nested?
+      = render 'shared/table', locals: { nesting: nesting, model: row_values[:model] || row_name, rows: row_values[:nested] }

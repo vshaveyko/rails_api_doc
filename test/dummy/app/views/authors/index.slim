@@ -1,34 +1,13 @@
-div.flex-table
-  div.flex-line.row
-    / Угловой елемент
-    div.flex-item
-    div.flex-item Колонка1
-    div.flex-item Колонка2
-    div.flex-item Колонка3
-  div.flex-line.row
-    div.flex-item Столбец1
-    div.flex-item
-    div.flex-item
-    div.flex-item
-  div.flex-line.row
-    div.flex-item Столбец2
-    div.flex-item
-    div.flex-item
-    div.flex-item
-  div.flex-line.row
-    div.flex-item Столбец3
-    div.flex-item
-    div.flex-item
-    div.flex-item
-  div.flex-line.row
-    div.flex-item Столбец4
-    div.flex-item
-    div.flex-item
-    div.flex-item
+- headers = ['head1', 'head2', 'head3']
+div.container(style="--row-count: #{headers.length + 1}")
+
+  - rows = [ ['Row1', 'val11', 'val12', 'val13'], ['Row2', 'val21', 'val22', 'val23'], ['Row3', 'val31', 'val32', 'val33'], { name: 'Nested', values: [ [ 'row4', 'val1', 'val2' ], ['row5', 'val3', 'val4' ] ] }, ['Row1', 'val11', 'val12', 'val13'], ['Row1', 'val11', 'val12', 'val13'] ]
+
+  = render 'table', locals: { headers: headers, rows: rows }
 
 div(style="margin: 100px;")
 
-div.flex-table.flexed
+div.flex-table(style="display: none")
   div.flex-line.column
     / Угловой елемент
     div.flex-item
