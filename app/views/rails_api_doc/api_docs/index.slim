@@ -4,7 +4,7 @@
   .row
     .col-md-9[role="main"]
 
-      - @repository.each do |model, params|
+      - @request_repository.each do |model, params|
         .bs-docs-section
           h2[id=(model.to_s)] = model.to_s
           p
@@ -15,9 +15,9 @@
             | Request
             = render 'request_api_table', locals: { model: model, params: params }
 
-          / p
-            / | Response
-            / = render 'request_api_table', locals: { model: model, params: params }
+          p
+            | Response
+            = render 'response_api_table', locals: { model: @response_repository.map[model], params: params }
 
     .col-md-3[role="complementary"]
       = render 'side_menu', locals: { models: @repository.keys }

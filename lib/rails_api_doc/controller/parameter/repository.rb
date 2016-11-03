@@ -12,6 +12,10 @@ class RailsApiDoc::Controller::Parameter::Repository
       super
     end
 
+    def registered_controllers
+      @repo.keys
+    end
+
     def respond_to_missing?(method, *)
       @repo.respond_to?(method)
     end

@@ -11,9 +11,12 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
     Dir.glob("#{Rails.root}/app/controllers/**/*.rb").each { |file| require_dependency file }
 
     @static_data = {
-      types: RailsApiDoc::Controller::Parameter::Repository::Param::ACCEPTED_TYPES.map(&:to_s).freeze
+      types: RailsApiDoc::Controller::Parameter::Repository::Param::ACCEPTED_TYPES.map(&:to_s)
     }
-    @repository = RailsApiDoc::Controller::Parameter::Repository
+
+    @request_repository = RailsApiDoc::Controller::Parameter::Repository
+
+    @response_repository = RailsApiDoc::Controller::Response.repo
   end
 
   def create
@@ -36,7 +39,6 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
   end
 
   def update
-
     pry binding
   end
 
