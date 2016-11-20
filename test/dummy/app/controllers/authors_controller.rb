@@ -18,4 +18,22 @@ class AuthorsController < ApplicationController
   end
   parameter :test, type: String, required: true
 
+  def member_route
+  end
+
+  def collection_route
+  end
+
+  def index
+  end
+
+  def show
+  end
+
+  def create
+  end
+
+  def update
+  end
+
 end

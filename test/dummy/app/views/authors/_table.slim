@@ -1,7 +1,6 @@
 - nesting = locals[:nesting].to_a.push(locals[:model])
 
 div.flex-table
-  = pry binding
   div.flex-line.row
     / Угловой елемент
     div.flex-item
@@ -12,7 +11,6 @@ div.flex-table
     div.flex-line.row
       div.flex-item  #{row_name} #{'*' if param_values.required?}
       - headers.each_key do |header_alias|
-        pry binding
         div.flex-item = row_values[header_alias]
     - if row_values.nested?
       = render 'shared/table', nesting: nesting, model: row_values[:model] || row_name, params: row_values[:nested]

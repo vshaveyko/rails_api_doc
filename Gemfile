@@ -7,8 +7,7 @@ gemspec
 gem 'actionpack', '~> 5.0', '>= 5.0.0.1'
 gem 'rails', '~> 5.0.0'
 gem 'sqlite3'
-gem 'twitter-bootstrap-rails'
-gem 'uglifier', '>= 1.0.3'
+# gem 'uglifier', '>= 1.0.3'
 
 gem 'slim'
 
@@ -28,3 +27,4 @@ group :development, :test do
 end
 
 gem 'has_scope'
+gem 'rabl'

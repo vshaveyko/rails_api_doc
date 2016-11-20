@@ -1,0 +1,7 @@
+div[href=(model.to_s + '.response') style="--row-count: 3"]
+  - repo.map[model][:actions].each do |action|
+    // TODO: Nest table in this div for easier jq toggling
+    // add borders to this div
+    div.request-action-title #{repo.action_route(model, action)}
+    - if data = repo.load_template(model, action)
+      = render 'shared/response_table', locals: { model: model, rows: data }

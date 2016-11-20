@@ -17,7 +17,7 @@
 
           p
             | Response
-            = render 'response_api_table', locals: { model: @response_repository.map[model], params: params }
+            = render 'response_api_table', model: model, repo: @response_repository
 
     .col-md-3[role="complementary"]
-      = render 'side_menu', locals: { models: @repository.keys }
+      = render 'side_menu', locals: { models: @request_repository.keys }

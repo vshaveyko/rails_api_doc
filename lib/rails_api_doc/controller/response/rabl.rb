@@ -1,26 +1,58 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
-class RailsApiDoc::Controller::Response::Rabl
+# :nodoc:
+class RailsApiDoc::Controller::Response
 
-  attr_reader :map
+  # :nodoc:
+  class Rabl
 
-  # pass all controllers registered for api doc
-  # TODO: add setting for displaying all from scratch
-  def initialize(controllers)
-    @controllers = controllers
-    @map = construct_controller_template_map
-  end
+    class << self
 
-  def construct_controller_template_map
-    @controllers.inject({}) do |map, ctrl|
-      map[ctrl] = load_templates(ctrl)
+      attr_accessor :renderer
+
     end
-  end
 
-  private
+    attr_reader :map
 
-    # load all rabl templates from app/views/ctrl_name/ .rabl
-    def load_templates(ctrl)
-      Dir.glob("app/views/#{ctrl.controller_path}/**/*.rabl")
+    # pass all controllers registered for api doc
+    # TODO: add setting for displaying all from start
+    def initialize(controllers)
+      @controllers = controllers
+      @routes = Rails.application.routes.set.anchored_routes.reject { |r| r.defaults[:internal] }
+      @map = construct_controller_template_map
     end
+
+    def load_template(ctrl, action)
+      RablCompiler.new("#{ctrl.controller_path}/#{action}").compile_source
+    end
+
+    def action_route(ctrl, action)
+      action_route = @map[ctrl][:routes].detect { |r| r.defaults[:action] == action }
+      method = action_route.instance_variable_get(:@request_method_match).first.name.split('::').last
+      route = action_route.path.spec.to_s
+      [method, route].join(' ')
+    end
+
+    private
+
+    def construct_controller_template_map
+      @controllers.each_with_object({}) do |ctrl, map|
+        map[ctrl] = ctrl_actions(ctrl)
+      end
+    end
+
+    def ctrl_actions(ctrl)
+      routes = @routes.select do |route|
+        route.defaults[:controller].in?([ctrl.controller_path, ctrl.controller_name])
+      end
+      actions = routes.map { |r| r.defaults[:action] }
+      {
+        routes: routes,
+        actions: ctrl.action_methods
+      }
+    end
+
+  end
 
 end

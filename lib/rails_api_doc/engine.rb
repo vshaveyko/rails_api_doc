@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 require 'action_controller'
 require 'action_view'
-# require 'twitter-bootstrap-rails'
 require 'jquery-rails'
 require 'slim'
 
@@ -15,7 +14,15 @@ require_relative 'controller/parameter/repository'
 require_relative 'controller/parameter/repository/param'
 
 require_relative 'controller/response_factory'
-require_relative 'controller/response/rabl'
+
+# add rabl support
+begin
+  require 'rabl'
+  require_relative 'controller/response/rabl'
+  require_relative 'controller/response/rabl_compiler'
+  RailsApiDoc::Controller::Response::Rabl.renderer = Rabl::Renderer
+rescue LoadError
+end
 
 class RailsApiDoc::Engine < ::Rails::Engine
 
