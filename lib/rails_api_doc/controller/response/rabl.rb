@@ -29,9 +29,9 @@ class RailsApiDoc::Controller::Response
 
     def action_route(ctrl, action)
       action_route = @map[ctrl][:routes].detect { |r| r.defaults[:action] == action }
-      method = action_route.instance_variable_get(:@request_method_match).first.name.split('::').last
+      method = action_route.instance_variable_get(:@request_method_match)&.first&.name&.split('::')&.last
       route = action_route.path.spec.to_s
-      [method, route].join(' ')
+      [method, route].compact.join(' ')
     end
 
     private
