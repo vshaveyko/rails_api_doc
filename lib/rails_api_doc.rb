@@ -1,6 +1,5 @@
 # author: Vadim Shaveiko <@vshaveyko>
 # frozen_string_literal: true
-require 'rails_api_doc/engine'
 module RailsApiDoc
 
   extend ActiveSupport::Autoload
@@ -24,3 +23,5 @@ module RailsApiDoc
   autoload :Controller
 
 end
+
+require 'rails_api_doc/engine'
