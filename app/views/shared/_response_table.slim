@@ -1,0 +1,14 @@
+div.flex-table
+  div.flex-line.row
+    / Угловой елемент
+    div.flex-item Parameter
+    div.flex-item Value
+  - locals[:rows].each do |row_name, node|
+    div.flex-line.row
+      div.flex-item  #{row_name}
+      - if node.nested?
+        div.flex-item.next-is-nested #{node.attr}(Nested)
+      - else
+        div.flex-item #{node.attr}
+    - if node.nested?
+      = render 'shared/response_table', locals: { rows: node.nested }
