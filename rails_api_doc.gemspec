@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rails_api_doc/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rails_api_doc'
+  spec.name          = 'rails_api_documentation'
   spec.version       = RailsApiDoc::VERSION
   spec.authors       = ['vs']
   spec.email         = ['vshaveyko@gmail.com']
