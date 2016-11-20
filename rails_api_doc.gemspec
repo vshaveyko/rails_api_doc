@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
     # raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   # end
 
-  soec.files = Dir["{app,config,lib,db}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md"]
+  spec.files = Dir["{app,config,lib,db}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md"]
 
   spec.bindir        = 'exe'
 
