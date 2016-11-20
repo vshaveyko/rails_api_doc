@@ -24,4 +24,5 @@ module RailsApiDoc
 
 end
 
+require 'rails_api_doc/version'
 require 'rails_api_doc/engine'
