@@ -117,7 +117,7 @@ class RailsApiDoc::Controller::Response
     def child(name_or_data, options = {})
       data, name = extract_data_and_name(name_or_data)
 
-      if options.empty? && new_options = name_or_data.to_a.second
+      if options.empty? && name_or_data.is_a?(Hash) && new_options = name_or_data.to_a.second
         options = [new_options].to_h
       end
 
