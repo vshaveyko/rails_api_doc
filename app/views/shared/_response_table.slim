@@ -1,14 +1,30 @@
+- nesting = locals[:nesting] || []
+
 div.flex-table
-  div.flex-line.row
+
+  = form_tag(api_doc_url(nesting: nesting), method: :put, remote: true, class: 'flex-line row') do
     / Угловой елемент
-    div.flex-item Parameter
+    div.flex-item
+      // TODO: use icon with + to indicate adding
+      span.add-ico = '( + )'
+      = text_field_tag 'name', nil, placeholder: 'Enter param name'
+      span Parameter
+
     div.flex-item Value
+
+    = submit_tag 'Save', class: 'flex-item mod-submit'
+
   - locals[:rows].each do |row_name, node|
-    div.flex-line.row
-      div.flex-item  #{row_name}
+    = form_tag(api_doc_url(nesting: nesting), method: :put, remote: true, class: 'flex-line row') do
+      div.flex-item
+        span.edit-ico = '(edit)'
+        = text_field_tag 'name', row_name, placeholder: 'Enter param name'
+        span #{row_name}
       - if node.nested?
         div.flex-item.next-is-nested #{node.attr}(Nested)
       - else
         div.flex-item #{node.attr}
+      = submit_tag 'Save', class: 'flex-item mod-submit'
+
     - if node.nested?
-      = render 'shared/response_table', locals: { rows: node.nested }
+      = render 'shared/response_table', locals: { rows: node.nested, nesting: nesting + [row_name] }

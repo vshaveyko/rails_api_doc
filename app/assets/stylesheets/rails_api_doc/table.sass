@@ -51,9 +51,16 @@
   // display: -ms-flexbox
   // display: -webkit-flex
   //
-
   &.row
     display: flex
+
+    &.is-active
+
+      input
+        display: inline-block
+
+      .mod-submit
+        display: inline-block
     // flex-flow: row wrap
     // justify-content: space-between
 
@@ -84,6 +91,13 @@
   .row &
     width: calc(100%/var(--row-count))
     min-height: 20px
+
+  &.mod-submit
+    display: none
+
+  input
+    display: none
+
   // Что я сделал ?? - оно почемуто заработало было flex-grow: 1
   // В статье написано что это тоже самое, а на практике - не так ?
   // flex: 1
@@ -102,4 +116,5 @@
 
 .request-action-title
   text-align: center
+
   background-color: lightblue

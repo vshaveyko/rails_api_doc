@@ -5,8 +5,11 @@
     .col-md-9[role="main"]
 
       - @request_repository.each do |model, params|
+
         .bs-docs-section
+
           h2[id=(model.to_s)] = model.to_s
+
           p
             | Scopes
             |  #{model.scopes_configuration.keys.map { |key| ":#{key}"}.join(', ')}

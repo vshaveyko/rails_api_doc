@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+ *
+ * TOPICS:
+ * 1. icons / svgs / sprites
+ * 2. file structure
+ * 3. side menu
+ *    a) from both left and right
+ *    b) left one always on screen
+ *    c) left should reduce font size if too much content
+ *
+ */
