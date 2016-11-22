@@ -5,7 +5,6 @@ require 'action_view'
 require 'jquery-rails'
 require 'slim'
 
-require_relative 'types'
 require_relative 'controller'
 require_relative 'controller/strong_params'
 require_relative 'controller/attribute_parser'

@@ -49,6 +49,12 @@ To display api documentation on route '/api_doc' you need to:
     end
   ```
 
+Parameter type may be one of these:
+
+  ```ruby
+    ACCEPTED_TYPES = [Bool, String, Integer, Object, Array, DateTime, :enum, :model].freeze
+  ```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

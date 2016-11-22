@@ -2,7 +2,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 class RailsApiDoc::Controller::Parameter::Repository::Param
 
-  ACCEPTED_TYPES = [String, Integer, Object, Array, DateTime, :enum, :model].freeze
+  ACCEPTED_TYPES = [Bool, String, Integer, Object, Array, DateTime, :enum, :model].freeze
 
   # @type - type to check
   def self.accepted_nested_type?(type)
