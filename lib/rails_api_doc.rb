@@ -27,6 +27,13 @@ end
 require 'rails_api_doc/version'
 require 'rails_api_doc/engine'
 
-# constant for defining in controllers
+# constants for defining in controllers
+# TODO: move to namespace ?
 class Bool
+end
+
+class Enum
+end
+
+class Nested
 end
