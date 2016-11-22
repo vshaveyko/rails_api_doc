@@ -1,14 +1,18 @@
-.container.bs-docs-container
-  .row
+.layout
+  .header
     = render 'title'
-  .row
-    .col-md-9[role="main"]
+  .content
+    div.aside
+      div#side-menu
+        = render 'side_menu', locals: { models: @request_repository.keys }
+
+    div.main-block
 
       - @request_repository.each do |model, params|
 
-        .bs-docs-section
+        div[id=(model.to_s)]
 
-          h2[id=(model.to_s)] = model.to_s
+          h2 = model.to_s
 
           p
             | Scopes
@@ -21,6 +25,3 @@
           p
             | Response
             = render 'response_api_table', model: model, repo: @response_repository
-
-    .col-md-3[role="complementary"]
-      = render 'side_menu', locals: { models: @request_repository.keys }

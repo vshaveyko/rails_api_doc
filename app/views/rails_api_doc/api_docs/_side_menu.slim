@@ -1,5 +1,5 @@
-nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs(data-spy="affix" data-offset-top="60")
- ul.nav.bs-docs-sidenav
+nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs
+ ul.side-menu.nav.bs-docs-sidenav
    - locals[:models].each do |model|
     li
       a[href=('#' + model.to_s)] = model.to_s

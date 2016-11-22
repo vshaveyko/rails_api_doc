@@ -1,4 +1,4 @@
 - @request_headers = { enum: 'Values(if type is enum)' }
 
-div[href=(locals[:model].to_s + '.request') style="--row-count: #{@request_headers.length}"]
+div[id="#{locals[:model]}.request" style="--row-count: #{@request_headers.length}"]
   = render 'shared/table', locals: { model: locals[:model], rows: locals[:params] }
