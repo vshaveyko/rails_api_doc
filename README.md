@@ -64,32 +64,32 @@ Parameter type may be one of these:
 + type for id reference with model field to display associated model and CONTROLLER in params for linking
 
 + native DSL for defining response
-  ```ruby
-    action :show do
-      response :age, type: Integer
-      response :name, type String
-      response :data, type: :model, model: Datum do
-        response :creation_date, type: DateTime
-        response :comment, type: String
-      end
+```ruby
+  action :show do
+    response :age, type: Integer
+    response :name, type String
+    response :data, type: :model, model: Datum do
+      response :creation_date, type: DateTime
+      response :comment, type: String
     end
-  ```
+  end
+```
 + native DSL for defining scopes
-  ```ruby
-    scope :age, desc: 'Filters authors by given age'
-  ```
+```ruby
+scope :age, desc: 'Filters authors by given age'
+```
 + dsl for extending response parameters
-   ```ruby
-      response :data, type: :model, model: Datum do
-        extends DataController, action: :show
-      end
-   ```
+```ruby
+  response :data, type: :model, model: Datum do
+    extends DataController, action: :show
+  end
+```
 + dsl for extending request parameters
-   ```ruby
-      parameter :data, type: :model, model: Datum do
-        extends DataController, action: :show
-      end
-   ```
+```ruby
+parameter :data, type: :model, model: Datum do
+  extends DataController, action: :show
+end
+```
 + ability to split request params to actions(low prior)
 + CRUD for all parameters
 + merging parameters from all sources before display
