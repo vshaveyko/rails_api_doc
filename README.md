@@ -95,6 +95,12 @@ end
 + merging parameters from all sources before display
 + pull everything that's possible to config
 
+## Development
+
++ add specs for everything done
++ inline documentation
++ README FAQ on added functionality with examples
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
