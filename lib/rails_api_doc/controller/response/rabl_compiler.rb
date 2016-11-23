@@ -38,7 +38,7 @@ module RailsApiDoc::Controller::Response
   class RablCompiler
 
     def initialize(file_path, view_path: 'app/views')
-      paths = Dir["#{view_path}/#{file_path}{.json,}.rabl"]
+      paths = Dir["#{view_path}/#{file_path}{.json.rabl,.rabl,}"]
       @file_path = paths.find { |path| File.exist?(path) }
 
       @source = _preserve_ivars File.read(@file_path)
