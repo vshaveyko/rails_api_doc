@@ -94,6 +94,7 @@ Parameter type may be one of these:
 + CRUD for all parameters
 + merging parameters from all sources before display
 + pull everything that's possible to config
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
