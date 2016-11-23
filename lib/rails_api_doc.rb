@@ -24,9 +24,6 @@ module RailsApiDoc
 
 end
 
-require 'rails_api_doc/version'
-require 'rails_api_doc/engine'
-
 # constants for defining in controllers
 # TODO: move to namespace ?
 class Bool
@@ -37,3 +34,6 @@ end
 
 class Nested
 end
+
+require 'rails_api_doc/version'
+require 'rails_api_doc/engine'
