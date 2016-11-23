@@ -61,9 +61,9 @@ Parameter type may be one of these:
   ```
 
 ## TODO's
-0.5) type for id reference with model field to display associated model and CONTROLLER in params for linking
++ type for id reference with model field to display associated model and CONTROLLER in params for linking
 
-1) native DSL for defining response
++ native DSL for defining response
   ```ruby
     action :show do
       response :age, type: Integer
@@ -74,26 +74,26 @@ Parameter type may be one of these:
       end
     end
   ```
-1.5) native DSL for defining scopes
++ native DSL for defining scopes
   ```ruby
     scope :age, desc: 'Filters authors by given age'
   ```
-2) dsl for extending response parameters
++ dsl for extending response parameters
    ```ruby
       response :data, type: :model, model: Datum do
         extends DataController, action: :show
       end
    ```
-3) dsl for extending request parameters
++ dsl for extending request parameters
    ```ruby
       parameter :data, type: :model, model: Datum do
         extends DataController, action: :show
       end
    ```
-4) ability to split request params to actions(low prior)
-5) CRUD for all parameters
-6) merging parameters from all sources before display
-7) pull everything that's possible to config
++ ability to split request params to actions(low prior)
++ CRUD for all parameters
++ merging parameters from all sources before display
++ pull everything that's possible to config
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
