@@ -11,11 +11,12 @@ module RailsApiDoc::Controller::StrongParams
 
   private
 
-  # loop through current level of params and add to permit level if
-  # all requirements met
+  # loop through current level of params and add to permit level if all requirements are met
+  #
   # requirements are: 1) if required is set - param must be present and not empty
   #                   2) if enum is set - param must equal predefined value
   #                   3) if config.check_params_type is set - param must be of required type
+  #
   # @accepted_params = [{}] - array with last member hash for nesting
   # @level_params - current nesting level params
   # @level_permitted_params - data for params permission
@@ -35,7 +36,7 @@ module RailsApiDoc::Controller::StrongParams
   end
 
   def permitted_params
-    Parameter::Repository[self]
+    ::RailsApiDoc::Controller::Parameter::Repository[self]
   end
 
   def check_required_ok?(param_data, param_config)

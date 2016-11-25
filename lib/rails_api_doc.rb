@@ -1,8 +1,8 @@
 # author: Vadim Shaveiko <@vshaveyko>
 # frozen_string_literal: true
-module RailsApiDoc
+require 'rails_api_doc/config'
 
-  extend ActiveSupport::Autoload
+module RailsApiDoc
 
   class << self
 
@@ -20,19 +20,6 @@ module RailsApiDoc
 
   end
 
-  autoload :Controller
-
-end
-
-# constants for defining in controllers
-# TODO: move to namespace ?
-class Bool
-end
-
-class Enum
-end
-
-class Nested
 end
 
 require 'rails_api_doc/version'

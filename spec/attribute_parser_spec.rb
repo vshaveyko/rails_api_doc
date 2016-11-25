@@ -52,7 +52,7 @@ describe service do
 
     expected = {
       type: :enum,
-      enum: %w(['enum1' 'enum2'])
+      enum: %w(enum1 enum2)
     }
 
     expect(service.parse_attributes(given)).to eq expected
@@ -79,6 +79,7 @@ describe service do
       'Integer' => Integer,
       'Object' => Object,
       'Array' => Array,
+      'Bool' => Bool,
       'DateTime' => DateTime
     }.each do |correct_class_name, correct_class|
       given = {

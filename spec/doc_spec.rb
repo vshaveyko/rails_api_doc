@@ -23,20 +23,26 @@ describe RailsApiDoc do
           TestsController.parameter(:param, type: String)
           TestsController.parameter(:enum_param, type: :enum, enum: [1, 2])
         end
+
         parameters = RailsApiDoc::Controller::Parameter::Repository[TestsController]
-        expect(parameters[:nested_param]).to eq({
+
+        expected = {
           type: Object,
           nested: {
             param: { type: String },
             enum_param: { type: :enum, enum: [1, 2] },
-          },
-        })
+          }
+        }
+
+        expect(parameters[:nested_param]).to eq expected
       end
 
       it 'filters params with strong_params with correct params' do
         controller.params[:param] = 'param'
         controller.params[:nested_param] = { param: 'param', enum_param: 1, wrong_param: 3 }
+
         params = {}
+
         expect(controller.strong_params).to eq controller.params.permit(:param, nested_param: [:param, :enum_param])
       end
     end

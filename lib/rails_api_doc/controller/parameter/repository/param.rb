@@ -2,15 +2,19 @@
 # author: Vadim Shaveiko <@vshaveyko>
 class RailsApiDoc::Controller::Parameter::Repository::Param
 
-  ACCEPTED_TYPES = [::Bool, String, Integer, Object, Array, DateTime, :enum, :model].freeze
+  NESTED_TYPES = [:ary_object, :object, :model, Object].freeze
+
+  STRAIGHT_TYPES = [:bool, :string, :integer, :array, :datetime, :enum, String, Object, Integer, Array, DateTime].freeze
+
+  ACCEPTED_TYPES = (NESTED_TYPES + STRAIGHT_TYPES).freeze
 
   # @type - type to check
   def self.accepted_nested_type?(type)
-    type == Object || type == :model
+    type.in?(NESTED_TYPES)
   end
 
   def self.valid_type?(type)
-    return if type.in?(ACCEPTED_TYPES)
+    return if type.nil? || type.in?(ACCEPTED_TYPES)
     raise ArgumentError, "Wrong type: #{type}. " \
                          "Correct types are: #{ACCEPTED_TYPES}."
   end
