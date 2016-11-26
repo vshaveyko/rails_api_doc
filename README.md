@@ -28,6 +28,10 @@ Or install it yourself as:
 
 To display api documentation on route '/api_doc' you need to:
 
+0. config/application.rb ->
+  ```ruby
+    require 'rails_api_doc'
+  ```
 1. config/routes.rb ->
   ```ruby
     mount RailsApiDoc::Engine => '/api_doc'
