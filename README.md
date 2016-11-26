@@ -17,11 +17,11 @@ Or install it yourself as:
 
     $ gem install rails_api_doc
 
-## FEATURES
+## Features
 
 + displaying application api if used in one of correct ways
 + Integration with Rabl if it is bundled
-+ ```ruby resource_params``` method that fill filter incoming params for you
++ ```resource_params``` method that will filter incoming params for you
 
 ## Usage
 
@@ -54,42 +54,43 @@ To display api documentation on route '/api_doc' you need to:
 
     end
   ```
+
 ## Strong params
 
-You may want to use your defined request api to filter incoming parameters.
-Usually we use something like ```ruby params.permit(:name, :age)```, but no more!
-With this gem bundled and parameters correctly configured(see Usage block) you can do this:
-  ```ruby
-    parameter :body, type: :string
-    parameter :title, type: :string
+  You may want to use your defined request api to filter incoming parameters.
+  Usually we use something like ```params.permit(:name, :age)```, but no more!
+  With this gem bundled you can do this:
+    ```ruby
+      parameter :body, type: :string
+      parameter :title, type: :string
 
-    # controller action
-    def create
-      Comment.create!(resource_params)
-    end
-  ```
+      # controller action
+      def create
+        Comment.create!(resource_params)
+      end
+    ```
 
-  and if request is `POST '/comments', params: { body: 'Comment body', title: 'Comment title', age: 34 }`
+    and if request is `POST '/comments', params: { body: 'Comment body', title: 'Comment title', age: 34 }`
 
-  Comment will be created with: `Comment(body='Comment body', title='Comment title', age=nil)`
+    Comment will be created with: `Comment(body='Comment body', title='Comment title', age=nil)`
 
-## TYPES
+## Types
 
-Parameter type may be one of these:
+  Parameter type may be one of these:
 
-  ```ruby
-   # Non nested
-    :bool - Boolean type, accepts true, false, 'true', 'false'
-    :string - basically because every incoming ctrl param is a string it will accept anything beside nested type
-    :integer - accepts numbers as string value, and usual numbers. Ex: '5', 5 - correct, 'error' - incorrect
-    :array - array of atomic values (integer, strings, etc)
-    :datetime - string with some datetime representation accepted by DateTime.parse
-    :enum - one of predefined values of enum: option (only atomic types)
+    ```ruby
+     # Non nested
+      :bool - Boolean type, accepts true, false, 'true', 'false'
+      :string - will accept anything beside nested type
+      :integer - accepts numbers as string value, and usual numbers
+      :array - array of atomic values (integer, strings, etc)
+      :datetime - string with some datetime representation accepted by DateTime.parse
+      :enum - one of predefined values of enum: option (only atomic types)
 
-   # nested
-    :object - usual nested type. comes very handy with rails nested_attributes feature
-    :ary_object - array of :object type, rails nested_attributes on has_many
-  ```
+     # nested
+      :object - usual nested type. comes very handy with rails nested_attributes feature
+      :ary_object - array of :object type, rails nested_attributes on has_many
+    ```
 
 ## TODO's
 + type for id reference with model field to display associated model and CONTROLLER in params for linking
