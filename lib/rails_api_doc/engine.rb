@@ -1,9 +1,8 @@
 # author: Vadism Shaveiko <@vshaveyko>
 # frozen_string_literal: true
-require 'action_controller'
-require 'action_view'
-require 'jquery-rails'
-require 'slim'
+require 'jquery-rails' # needed for require in javascript
+
+require_relative 'railtie'
 
 require_relative 'exception/param_required'
 
@@ -32,11 +31,6 @@ class RailsApiDoc::Engine < ::Rails::Engine
 
   initializer 'rails_api_doc.assets.precompile' do |app|
     app.config.assets.precompile += %w(application.css application.js api_doc.js rails_api_doc/api_doc.js)
-  end
-
-  ActionController::Base.class_eval do
-    include RailsApiDoc::Controller::StrongParams
-    extend RailsApiDoc::Controller::Parameter
   end
 
 end

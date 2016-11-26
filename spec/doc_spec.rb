@@ -43,7 +43,7 @@ describe RailsApiDoc do
 
         params = {}
 
-        expect(controller.strong_params).to eq controller.params.permit(:param, nested_param: [:param, :enum_param])
+        expect(controller.resource_params).to eq controller.params.permit(:param, nested_param: [:param, :enum_param])
       end
     end
   end
