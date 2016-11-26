@@ -1,4 +1,6 @@
 _header_height = 0
+_window_height = 0
+_window = null
 _side_menu = null
 
 $ ->
@@ -18,13 +20,15 @@ $ ->
 
   _header_height = $('.aside').offset().top
 
+  _window = $(window)
+
+  _window_height = _window.height()
+
   _side_menu = $('#side-menu')
 
 $(document).on 'scroll', ->
-  _window = $(window)
   _scrollTop = _window.scrollTop()
 
-  console.log _header_height
   if _scrollTop > _header_height
     _side_menu.addClass('fixed')
   else
