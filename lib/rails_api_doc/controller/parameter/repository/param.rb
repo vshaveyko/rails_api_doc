@@ -19,8 +19,9 @@ class RailsApiDoc::Controller::Parameter::Repository::Param
                          "Correct types are: #{ACCEPTED_TYPES}."
   end
 
-  def self.valid_enum?(enum)
-    return if enum.nil? || enum.is_a?(Array)
+  def self.valid_enum?(type, enum)
+    return false unless type == :enum
+    return if enum.is_a?(Array)
     raise ArgumentError, 'Enum must be an array.'
   end
 
@@ -35,8 +36,20 @@ class RailsApiDoc::Controller::Parameter::Repository::Param
     @store = store
   end
 
+  def enum?
+    @store[:type] == :enum && @store[:enum].present?
+  end
+
+  def ary_object?
+    @store[:type] == :ary_object
+  end
+
   def nested?
     self.class.accepted_nested_type?(@store[:type])
+  end
+
+  def nesting
+    @store[:nested]
   end
 
   def required?
@@ -44,7 +57,7 @@ class RailsApiDoc::Controller::Parameter::Repository::Param
   end
 
   def method_missing(name, *args)
-    return @store.send(name, *args) if respond_to_missing?(name)
+    return @store.public_send(name, *args) if respond_to_missing?(name)
     super
   end
 

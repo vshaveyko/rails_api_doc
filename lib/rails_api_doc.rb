@@ -11,7 +11,7 @@ module RailsApiDoc
     end
 
     def configuration
-      @_configuration ||= Configuration.new
+      @_configuration ||= Config.new
     end
 
     def reset_configuration

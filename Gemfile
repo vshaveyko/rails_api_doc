@@ -21,6 +21,7 @@ gem 'therubyrhino', '2.0.4',        platforms: :jruby
 
 gem 'pry'
 gem 'pry-stack_explorer'
+gem 'pry-rescue'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'

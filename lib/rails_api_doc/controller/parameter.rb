@@ -20,10 +20,6 @@ module RailsApiDoc::Controller::Parameter
     options.assert_valid_keys(VALID_KEYS)
 
     Repository::Param.valid_type?(options[:type])
-
-    Repository::Param.valid_enum?(options[:enum])
-
-    Repository::Param.valid_nested?(options[:type], block_given)
   end
 
   # default repo can be reassigned to deal with nested parameters
@@ -32,13 +28,18 @@ module RailsApiDoc::Controller::Parameter
     @repo || Repository[self]
   end
 
+  # adjust parameter values depending on parameter type
+  # 1. if nested - add nested values to parameter_data on :nested key
+  # 2. if enum - transform all values to_s
+  #    bcs all incoming controller parameters will be strings and there can be errors
   def define_parameter(name, parameter_data, &block)
-    repo[name] = \
-      if Repository::Param.valid_nested?(parameter_data[:type], block_given?)
-        Repository::Param.new(name, nested_parameter(parameter_data, &block))
-      else
-        Repository::Param.new(name, parameter_data)
-      end
+    if Repository::Param.valid_nested?(parameter_data[:type], block_given?)
+      parameter_data = nested_parameter(parameter_data, &block)
+    elsif Repository::Param.valid_enum?(parameter_data[:type], parameter_data[:enum])
+      parameter_data[:enum].map!(:to_s)
+    end
+
+    repo[name] = Repository::Param.new(name, parameter_data)
   end
 
   def nested_parameter(parameter_data)
