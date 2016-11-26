@@ -6,7 +6,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rails_api_doc'
+gem 'rails_api_documentation'
 ```
 
 And then execute:
@@ -15,12 +15,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rails_api_doc
+    $ gem install rails_api_documentation
 
 ## Features
 
 + displaying application api if used in one of correct ways
-  ![alt tag](https://raw.githubusercontent.com/vshaveyko/rails_api_doc/master/preview.png)
+  ![alt tag](https://raw.githubusercontent.com/vshaveyko/rails_api_documentation/master/preview.png)
 + Integration with Rabl if it is bundled
 + ```resource_params``` method that will filter incoming params for you
 
