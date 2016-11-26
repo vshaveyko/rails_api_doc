@@ -20,6 +20,7 @@ Or install it yourself as:
 ## Features
 
 + displaying application api if used in one of correct ways
+  ![alt tag](https://raw.githubusercontent.com/vshaveyko/rails_api_doc/master/preview.png)
 + Integration with Rabl if it is bundled
 + ```resource_params``` method that will filter incoming params for you
 
