@@ -61,17 +61,17 @@ To display api documentation on route '/api_doc' you need to:
   Usually we use something like `params.permit(:name, :age)`, but no more!
   With this gem bundled you can do this:
 
-    ```ruby
+  ```ruby
 
-      parameter :body, type: :string
-      parameter :title, type: :string
+    parameter :body, type: :string
+    parameter :title, type: :string
 
-      # controller action
-      def create
-        Comment.create!(resource_params)
-      end
+    # controller action
+    def create
+      Comment.create!(resource_params)
+    end
 
-    ```
+  ```
 
   and if request is `POST '/comments', params: { body: 'Comment body', title: 'Comment title', age: 34 }`
 
