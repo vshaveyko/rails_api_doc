@@ -59,7 +59,7 @@ To display api documentation on route '/api_doc' you need to:
 
     end
   ```
-3. go to localhost:<your_port>/api_doc
+3. go to localhost:3000/api_doc
 
 ## Strong params
 
