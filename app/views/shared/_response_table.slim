@@ -4,13 +4,13 @@ div.flex-table
 
   = form_tag(api_doc_url(nesting: nesting), method: :put, remote: true, class: 'flex-line row') do
     / Угловой елемент
-    div.flex-item
+    h1.flex-item
       // TODO: use icon with + to indicate adding
       span.add-ico = '( + )'
       = text_field_tag 'name', nil, placeholder: 'Enter param name'
       span Parameter
 
-    div.flex-item Value
+    h1.flex-item Value
 
     = submit_tag 'Save', class: 'flex-item mod-submit'
 

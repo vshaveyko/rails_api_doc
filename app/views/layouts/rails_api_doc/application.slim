@@ -9,12 +9,19 @@ html lang="en"
     == stylesheet_link_tag "rails_api_doc/application", :media => "all"
     == javascript_include_tag "api_doc"
     == csrf_meta_tags
-  body
-    #main.container
-      == yield
-    footer#footer
-      .container
-        p
-          | Powered by
-          a href="http://github.com/vshaveyko/rails_api_doc" RailsApiDoc
-          == RailsApiDoc::VERSION
+  body.wrap
+
+    h1.header
+      span.blue &lt;
+      span Rails
+      span.blue &gt;
+      span
+      span.yellow Api Documentation
+
+    == yield
+
+    / footer#footer
+      / p
+        / span Powered by &nbsp;
+        / a href="http://github.com/vshaveyko/rails_api_doc" RailsApiDoc &nbsp;
+        / == RailsApiDoc::VERSION

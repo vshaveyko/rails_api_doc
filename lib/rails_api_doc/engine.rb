@@ -7,7 +7,10 @@ require_relative 'railtie'
 require_relative 'exception/param_required'
 
 require_relative 'controller'
-require_relative 'controller/strong_params'
+
+require_relative 'controller/resource_params/permitted_params'
+require_relative 'controller/resource_params/dsl'
+
 require_relative 'controller/attribute_parser'
 
 require_relative 'controller/parameter'

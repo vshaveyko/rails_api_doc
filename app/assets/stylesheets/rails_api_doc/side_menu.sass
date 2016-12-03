@@ -1,30 +1,214 @@
-.side-menu
+// .side-menu
+ul
   list-style-type: none
   padding: 0
-  font-size: 15px
 
-  li
-    margin-bottom: 3px
+  // padding: 0
+  // font-size: 15px
+//
+  // li
+    // margin-bottom: 3px
+//
+    // span
+      // margin: 0 2px
+//
+    // a
+      // display: inline-block
+      // padding: 0
+      // font-size: 15px
+      // font-weight: 500
+      // color: #767676
+      // text-decoration: none
+//
+      // &:hover
+        // color: #563d7c
+        // text-decoration: underline
+        // background-color: transparent
+//
+    // &.is-current
+      // padding-left: 18px
+      // font-weight: 700
+      // color: #563d7c
+      // background-color: transparent
+      // border-left: 2px solid #563d7c
 
-    span
-      margin: 0 2px
 
-    a
-      display: inline-block
+// COPIED
+
+.wrap
+  position: relative
+
+  .nav-bar
+    .navbar-brand
+      margin-top: 15px
+
+    .navbar-form
+      margin-top: 25px
+
+    .nav
+      float: right !important
+
+  .side-menu-link
+    left: 21em
+
+  #side-menu
+    position: absolute
+    z-index: -1
+    background: #404040
+    width: 22em
+    padding-top: 0px
+    padding-right: 20px
+    padding-left: 10px
+    float: left
+    display: block
+    left: 0
+    height: 900px
+
+  .content
+    position: absolute
+    right: 0
+    min-width: 400px
+
+    .top-bar
+      height: 40px
+      background: #ddd
+
+    .content-inner
       padding: 0
-      font-size: 15px
-      font-weight: 500
-      color: #767676
-      text-decoration: none
+      margin: 0
+      background: #fff
+      padding-left: 20px
+      display: block
+      position: absolute
+      height: 900px
+      width: 100%
 
-      &:hover
-        color: #563d7c
-        text-decoration: underline
-        background-color: transparent
 
-    &.is-current
-      padding-left: 18px
-      font-weight: 700
-      color: #563d7c
-      background-color: transparent
-      border-left: 2px solid #563d7c
+    -webkit-transition: all 0.3s ease-out
+    -moz-transition: all 0.3s ease-out
+    -ms-transition: all 0.3s ease-out
+    -o-transition: all 0.3s ease-out
+    transition: all 0.3s ease-out
+
+  ul.accordion
+    width: 100%
+    background: transparent
+
+  .link
+    cursor: pointer
+    display: block
+    padding: 15px 15px 15px 42px
+    color: #9D9D9D
+    font-size: 14px
+    font-weight: 700
+    border-bottom: 1px solid #303030
+    position: relative
+    -webkit-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+
+  li:not(open):last-child, .link
+    border-bottom: 0
+
+  li i
+    position: absolute
+    top: 16px
+    left: 12px
+    font-size: 18px
+    color: #999
+    -webkit-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+
+
+  li i.fa-chevron-down
+    right: 12px
+    left: auto
+    font-size: 16px
+
+  li.open .link
+    color: #FFB266//#b63b4d
+
+  li.open i
+    color: #FFB266//#b63b4d
+
+
+  li.open i.fa-chevron-down
+    -webkit-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    -o-transform: rotate(180deg)
+    transform: rotate(180deg)
+
+  ul.submenu
+    display: none
+    background: transparent
+    font-size: 14px
+    padding: 0
+
+    li
+      border-bottom: 1px solid #4b4a5e
+      list-style: none
+
+      a
+        display: block
+        text-decoration: none
+        color: #d9d9d9
+        padding: 12px
+        padding-left: 42px
+        -webkit-transition: all 0.25s ease
+        -o-transition: all 0.25s ease
+        transition: all 0.25s ease
+
+      a: over
+        background: rgba(240,128,128, 0.8)//#b63b4d
+        color: rgb(255, 178, 102) //#FFF
+
+@media screen and (max-width: 768px)
+  .wrap
+    .nav-bar
+      .navbar-brand
+        margin-top: 0
+        padding-left: 0
+
+    .side-menu-link
+      display: inline-block
+
+  .wrap
+    #side-menu #qform
+      position: absolute
+      top: 10px
+
+    .content
+      left: 0
+
+    .wrap.active
+      .content
+        left: 21em
+
+        #bgrOne
+
+          top: 0px
+          transform: rotate(225deg)
+
+        #bgrTwo
+
+          opacity: 0
+
+        #bgrThree
+
+          top: 0px
+          transform: rotate(315deg)
+
+@media screen and (min-width: 1000px)
+  #side-menu
+    display: none
+
+  .side-menu-link
+    display: none
+
+  .wrap
+    position: relative
+
+    .content
+      left: 21em
+      right: 0

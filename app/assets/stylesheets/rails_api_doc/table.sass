@@ -2,36 +2,38 @@
   --row-count: 5
 
 .flex-table
-  // display: inline-flex
-  // justify-content: center
-  // width: 80%
-  // margin: 0 auto
-  // display: inline-block
-  padding: 5px
-  box-sizing: border-box
-  background: lightblue
-
-  // border: 1px solid black
+  overflow: hidden
+  width: 100%
+  margin: 0
+  display: table
+  padding: 0 0 0 0
 
   & &
-    display: none
+    visibility: hidden
+    position: absolute
+    opacity: 0
+
     width: 100%
-    background: gray
+    background: #185875
     padding: 20px
     box-sizing: border-box
 
     & .flex-table
       padding-right: 0
 
-//
-  // &.flex-table
-    // width: 100%
-    // background: gray
-    // padding: 20px
-    // box-sizing: border-box
-//
-    // &.flex-table
-      // padding-right: 0
+    &.is-shown
+      opacity: 1
+      position: relative
+      // display: table
+      visibility: visible
+      transition: visibility 0s, opacity 0.5s linear
+
+  .row
+    font-weight: normal
+    font-size: 0.9em
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119
+    -moz-box-shadow: 0 2px 2px -2px #0E1119
+    box-shadow: 0 2px 2px -2px #0E1119
 
 .flex-line
 
@@ -41,18 +43,30 @@
   border-bottom: 1px solid black
 
   &:first-child
-    border-top: 1px solid black
+    color: #FB667A
+    // border-top: 1px solid black
 
   background: lightgreen
 
-  // Зачем это ?
-  // display: -webkit-box
-  // display: -moz-box
-  // display: -ms-flexbox
-  // display: -webkit-flex
-  //
   &.row
     display: flex
+
+    &:hover
+      background-color: #464A52
+
+    h1
+      margin: 0
+      text-align: center
+      font-weight: bold
+      background-color: #1F2739
+      font-size: 1em
+      // color: #185875
+
+    &:nth-child(odd)
+      background-color: #323C50
+
+    &:nth-child(even)
+      background-color: #2C3446
 
     &.is-active
 
@@ -61,31 +75,19 @@
 
       .mod-submit
         display: inline-block
-    // flex-flow: row wrap
-    // justify-content: space-between
 
-    // ничего не сделало
-    // flex-direction: row
-    // ничего не сделало
-    // flex-wrap: nowrap
-
-  // -webkit-flex-flow: row wrap
-
-   &.column
-     flex: 1
-     flex-flow: column wrap
-     align-content: flex-start
-     // align-items: stretch
+    &.column
+      flex: 1
+      flex-flow: column wrap
+      align-content: flex-start
 
 .flex-item
-  border-right: 1px solid black
-  &:first-child
-    border-left: 1px solid black
-  // border-bottom: 1px solid black
-  background: tomato
-  padding: 5px
+  padding-bottom: 1%
+  padding-top: 1%
+  padding-left: 2%
+  // margin-right: 0.2%
 
-  // margin: auto
+  border-right: 2px solid #1F2739
   text-align: center
 
   .row &
@@ -98,27 +100,31 @@
   input
     display: none
 
-  // Что я сделал ?? - оно почемуто заработало было flex-grow: 1
-  // В статье написано что это тоже самое, а на практике - не так ?
-  // flex: 1
-  // TODO: need function that will count % from num childs?
-  // магические отступы ))
-  // width: 23%
-
-  // line-height: 150px
-  // color: white
-  // font-weight: bold
-  // font-size: 3em
-  // text-align: center
-
   .column &
     width: 100%
+
+div.flex-item
+
+  &:hover
+    background-color: #FFF842
+    color: #403E10
+
+    transition-delay: 0s
+    transition-duration: 0.4s
+    transition-property: all
+    transition-timing-function: line
+
+  &.next-is-nested
+    cursor: pointer
+    &:hover
+      box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px
+      transform: translate3d(6px, -6px, 0)
 
 .header
   text-align: center
 
-.content
-  display: flex
+// .content
+  // display: flex
 
 .aside
   flex: 1
@@ -133,7 +139,29 @@
     position: fixed
     top: 0
 
-.request-action-title
-  text-align: center
+.nav
+  position: absolute
 
-  background-color: lightblue
+.response-table
+
+  .request-action-title
+    text-align: center
+
+    &:nth-child(odd)
+      background-color: #323C50
+
+    &:nth-child(even)
+      background-color: #2C3446
+
+
+  // background-color: lightblue
+
+p.title
+  text-align: center
+  color: #4DC3FA
+  font-weight: 500
+
+@media (max-width: 1000px)
+  .flex-table .flex-item:nth-child(4),
+  .flex-table .row h1:nth-child(4)
+    display: none

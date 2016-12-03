@@ -2,7 +2,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 require 'rails_helper'
 
-describe RailsApiDoc::Controller::StrongParams, type: :controller do
+describe RailsApiDoc::Controller::ResourceParams, type: :controller do
   # RailsApiDoc.configure do |config|
   # config.check_params_type = false
   # end

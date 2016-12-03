@@ -6,7 +6,7 @@ _side_menu = null
 $ ->
   $('.next-is-nested').on 'click', (e) ->
     self = $(this)
-    self.closest('.row').next().toggle()
+    self.closest('.row').next().toggleClass('is-shown')
 
   $('.request-action-title').on 'click', (e) ->
     self = $(this)
@@ -18,7 +18,7 @@ $ ->
     self = $(this)
     self.closest('.row').toggleClass('is-active')
 
-  _header_height = $('.aside').offset().top
+  # _header_height = $('.aside').offset().top
 
   _window = $(window)
 

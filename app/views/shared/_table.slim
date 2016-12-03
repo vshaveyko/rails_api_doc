@@ -3,10 +3,10 @@
 div.flex-table
   div.flex-line.row
     / Угловой елемент
-    div.flex-item Parameter
-    div.flex-item Type
+    h1.flex-item Parameter
+    h1.flex-item Type
     - @request_headers.each_value do |header|
-      div.flex-item = header
+      h1.flex-item = header
   - locals[:rows].each do |row_name, row_values|
     div.flex-line.row
       div.flex-item  #{row_name} #{'*' if row_values.required?}

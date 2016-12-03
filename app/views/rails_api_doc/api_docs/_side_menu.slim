@@ -1,9 +1,9 @@
 nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs
  ul.side-menu.nav.bs-docs-sidenav
    - locals[:models].each do |model|
-    li
-      a[href=('#' + model.to_s)] = model.to_s
+    li.yellow
+      a.yellow[href=('#' + model.to_s)] = model.to_s
       span = '('
-      a[href=('#' + model.to_s + '.request')] req,
-      a[href=('#' + model.to_s + '.response')] resp
+      a.yellow[href=('#' + model.to_s + '.request')] req,
+      a.yellow[href=('#' + model.to_s + '.response')] resp
       span = ')'
