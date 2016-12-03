@@ -14,5 +14,3 @@ class RailsApiDoc::Config
   end
 
 end
-
-require_relative 'config/validator'

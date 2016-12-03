@@ -1,16 +1,7 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
-# :nodoc:
-class RailsApiDoc::Controller::Response
-
-  class Node < Struct.new(:name, :attr, :nested, :model)
-
-    def nested?
-      !nested.nil?
-    end
-
-  end
+module RailsApiDoc::Controller::Response
 
   # template struct
   class CompiledAttributes
@@ -36,7 +27,7 @@ class RailsApiDoc::Controller::Response
         n[:name] = "#{n[:name]}(#{n[:attr]})"
       end
 
-      @nodes[n[:name]] = Node.new(n[:name], n[:attr], n[:nested])
+      @nodes[n[:name]] = RailsApiDoc::Controller::Response::Param.new(n[:name], n[:attr], n[:nested])
     end
 
     def extends(template)
@@ -50,9 +41,9 @@ class RailsApiDoc::Controller::Response
 
     def initialize(file_path, view_path: 'app/views')
       paths = Dir["#{view_path}/#{file_path}{.json,}.rabl"]
-      file_path = paths.find { |path| File.exist?(path) }
+      @file_path = paths.find { |path| File.exist?(path) }
 
-      @source = _preserve_ivars File.read(file_path)
+      @source = _preserve_ivars File.read(@file_path)
     rescue
     end
 

@@ -13,6 +13,13 @@ module RailsApiDoc::Controller::Response::Headers
         title += '(NESTED)' if row_values.nested?
         title
       }
+    },
+    'Desc' => {
+      value: -> (row_name, row_values) {
+        'TODO: description' # if row_values[:desc]
+      },
+      fill_type: :input,
+      param: :desc
     }
   }
 

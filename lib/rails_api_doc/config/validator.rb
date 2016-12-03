@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
-require_relative 'validate_ary_object'
-require_relative 'validate_enum'
-require_relative 'validate_type'
-
 class RailsApiDoc::Config::Validator
 
   class << self

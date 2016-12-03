@@ -2,7 +2,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 require 'rails_helper'
 
-service = RailsApiDoc::Controller::AttributeParser
+service = RailsApiDoc::Model::AttributeParser
 describe service do
   it 'parses numbers correctlyu' do
     given = {

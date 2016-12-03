@@ -5,7 +5,7 @@ module RailsApiDoc
 
         include RailsApiDoc::Controller::ResourceParams::DSL
 
-        extend RailsApiDoc::Controller::Parameter
+        extend RailsApiDoc::Controller::Request::DSL
 
       end
     end

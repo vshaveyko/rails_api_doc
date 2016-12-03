@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
-class RailsApiDoc::Controller::Response
+class RailsApiDoc::Controller::Response::Factory
 
   class << self
 
@@ -11,7 +11,7 @@ class RailsApiDoc::Controller::Response
     end
 
     def controllers
-      RailsApiDoc::Controller::Parameter::Repository.registered_controllers
+      RailsApiDoc::Controller::Request::Repository.registered_controllers
     end
 
   end

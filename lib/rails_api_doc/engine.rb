@@ -4,23 +4,6 @@ require 'jquery-rails' # needed for require in javascript
 
 require_relative 'railtie'
 
-require_relative 'exception/param_required'
-
-require_relative 'controller'
-
-require_relative 'controller/resource_params/permitted_params'
-require_relative 'controller/resource_params/dsl'
-
-require_relative 'controller/attribute_parser'
-
-require_relative 'controller/parameter'
-require_relative 'controller/parameter/repository/param'
-require_relative 'controller/parameter/headers'
-require_relative 'controller/parameter/repository'
-
-require_relative 'controller/response/factory'
-require_relative 'controller/response/headers'
-
 # add rabl support
 begin
   require 'rabl'

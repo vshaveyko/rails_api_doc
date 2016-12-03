@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
-class RailsApiDoc::Controller::Parameter::Repository
+class RailsApiDoc::Controller::Request::Repository
 
-  extend RailsApiDoc::Controller::Parameter::Headers
+  extend RailsApiDoc::Controller::Request::Headers
 
   @repo = Hash.new { |hsh, key| hsh[key] = Hash.new { |hsh, key| hsh[key] = Param.new(key) } }
 

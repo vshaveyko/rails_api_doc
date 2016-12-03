@@ -1,7 +1,7 @@
 # :nodoc:
 module RailsApiDoc
   module Controller
-    module Parameter
+    module Request
       module Headers
 
         def headers
@@ -28,7 +28,7 @@ module RailsApiDoc
             },
             fill_type: :select,
             param: :type,
-            values: RailsApiDoc::Controller::Parameter::Repository::Param::ACCEPTED_TYPES
+            values: RailsApiDoc::Controller::Request::Param::ACCEPTED_TYPES
           },
           'Special' => {
             value: -> (row_name, row_values) {

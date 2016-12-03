@@ -14,7 +14,7 @@ describe RailsApiDoc do
 
       it 'is added to repository' do
         TestsController.parameter :param, type: String
-        parameters = RailsApiDoc::Controller::Parameter::Repository[TestsController]
+        parameters = RailsApiDoc::Controller::Request::Repository[TestsController]
         expect(parameters[:param]).to eq type: String
       end
 
@@ -24,7 +24,7 @@ describe RailsApiDoc do
           TestsController.parameter(:enum_param, type: :enum, enum: [1, 2])
         end
 
-        parameters = RailsApiDoc::Controller::Parameter::Repository[TestsController]
+        parameters = RailsApiDoc::Controller::Request::Repository[TestsController]
 
         expected = {
           type: Object,

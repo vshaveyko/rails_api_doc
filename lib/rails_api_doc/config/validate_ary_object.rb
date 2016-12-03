@@ -3,7 +3,7 @@
 class RailsApiDoc::Config::ValidateAryObject
 
   #
-  # @api_param_data - RailsApiDoc::Controller::Parameter::Repository::Param
+  # @api_param_data - RailsApiDoc::Controller::Request::Param
   # @controller_param - ActionController::Parameter
   #
   # check validation of current type by given data

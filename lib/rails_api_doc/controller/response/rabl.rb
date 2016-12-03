@@ -2,7 +2,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
 # :nodoc:
-class RailsApiDoc::Controller::Response
+module RailsApiDoc::Controller::Response
 
   # :nodoc:
   class Rabl

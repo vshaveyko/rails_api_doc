@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
-class RailsApiDoc::Controller::AttributeParser
+class RailsApiDoc::Model::AttributeParser
 
   # TODO : Change to I18n. Added on: 08.10.16. Added by: <@vshaveyko>
   WRONG_NAME_ERROR_STRING = 'Name should consist only of letters\ciphers\underscores'

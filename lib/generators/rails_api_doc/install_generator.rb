@@ -12,7 +12,12 @@ module RailsApiDoc
     end
 
     def copy_migrations
-      migration_template "api_datum_migration.rb", "db/migrate/generate_rails_api_documentation_attributes_table.rb"
+      filename = 'generate_rails_api_documentation_attributes_table'
+      if self.class.migration_exists?('db/migrate', "#{filename}")
+        say_status('skipped', "Migration #{filename}.rb already exists")
+      else
+        migration_template "api_datum_migration.rb", "db/migrate/#{filename}.rb"
+      end
     end
   end
 end

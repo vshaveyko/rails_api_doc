@@ -12,7 +12,7 @@ module RailsApiDoc
         end
 
         def _permitted_params
-          ::RailsApiDoc::Controller::Parameter::Repository[self.class]
+          ::RailsApiDoc::Controller::Request::Repository[self.class]
         end
 
         #
@@ -60,14 +60,14 @@ module RailsApiDoc
             if api_param_data.ary_object? # controller_param value should be array of objects
               controller_param.each do |single_controller_param|
                 _next_nesting_level(single_controller_param,
-                                    param_data: api_param_data.nesting,
+                                    param_data: api_param_data.nested,
                                     current_accepted_params: accepted_params,
                                     param_name: param_name)
 
               end
             elsif api_param_data.nested? # value should be nested object
               _next_nesting_level(controller_param,
-                                  param_data: api_param_data.nesting,
+                                  param_data: api_param_data.nested,
                                   current_accepted_params: accepted_params,
                                   param_name: param_name)
 

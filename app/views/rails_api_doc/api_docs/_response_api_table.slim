@@ -12,4 +12,4 @@ div.response-table[id="#{ctrl}.response"  style="--row-count: #{response_headers
 
       - if rows = repo.load_template(ctrl, action)
 
-        = render 'shared/table', model: ctrl, rows: rows, headers: response_headers, nesting: []
+        = render 'shared/table', model: ctrl, rows: rows, headers: response_headers, nesting: [], type: :response
