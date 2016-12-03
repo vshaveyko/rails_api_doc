@@ -1,4 +1,5 @@
-- @request_headers = { enum: 'Values(if type is enum)' }
+- request_headers = repo.headers
 
-div[id="#{locals[:model]}.request" style="--row-count: #{@request_headers.length}"]
-  = render 'shared/table', locals: { model: locals[:model], rows: locals[:params] }
+div[id="#{ctrl}.request" style="--row-count: #{request_headers.length}"]
+
+  = render 'shared/table', model: ctrl, rows: repo[ctrl], headers: request_headers, nesting: []

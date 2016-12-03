@@ -16,6 +16,8 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
 
     @request_repository = RailsApiDoc::Controller::Parameter::Repository
 
+    @registered_controllers = @request_repository.registered_controllers
+
     @response_repository = RailsApiDoc::Controller::Response.repo
   end
 

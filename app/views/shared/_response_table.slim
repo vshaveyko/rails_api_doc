@@ -27,4 +27,4 @@ div.flex-table
       = submit_tag 'Save', class: 'flex-item mod-submit'
 
     - if node.nested?
-      = render 'shared/response_table', locals: { rows: node.nested, nesting: nesting + [row_name] }
+      = render 'shared/response_table', locals: { rows: node.nested, nesting: nesting + [row_name] }, headers: headers

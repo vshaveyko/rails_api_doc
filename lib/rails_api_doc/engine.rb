@@ -14,10 +14,12 @@ require_relative 'controller/resource_params/dsl'
 require_relative 'controller/attribute_parser'
 
 require_relative 'controller/parameter'
-require_relative 'controller/parameter/repository'
 require_relative 'controller/parameter/repository/param'
+require_relative 'controller/parameter/headers'
+require_relative 'controller/parameter/repository'
 
-require_relative 'controller/response_factory'
+require_relative 'controller/response/factory'
+require_relative 'controller/response/headers'
 
 # add rabl support
 begin

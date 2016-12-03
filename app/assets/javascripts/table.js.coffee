@@ -14,8 +14,13 @@ $ ->
     return unless next.hasClass('flex-table')
     next.toggle()
 
-  $('.add-ico, .edit-ico').on 'click', (e) ->
+  $('.flex-table input, .flex-table select').on 'click', (e) ->
+    e.stopPropagation()
+
+  $('.ico').on 'click', (e) ->
     self = $(this)
+    e.preventDefault()
+    e.stopPropagation()
     self.closest('.row').toggleClass('is-active')
 
   # _header_height = $('.aside').offset().top

@@ -1,20 +1,42 @@
-- nesting = locals[:nesting].to_a.push(locals[:model])
+- nesting = nesting + [model] # do not mutate nesting value
 
 div.flex-table
-  div.flex-line.row
-    / Угловой елемент
-    h1.flex-item Parameter
-    h1.flex-item Type
-    - @request_headers.each_value do |header|
-      h1.flex-item = header
-  - locals[:rows].each do |row_name, row_values|
-    div.flex-line.row
-      div.flex-item  #{row_name} #{'*' if row_values.required?}
-      - if row_values.nested?
-        div.flex-item.next-is-nested #{row_values[:model]}(Nested)
-      - else
-        div.flex-item #{row_values[:type]}
-      - @request_headers.each_key do |header_alias|
-        div.flex-item = row_values[header_alias]
+
+  / header row
+  = form_tag(api_doc_url(nesting: nesting), method: :put, remote: true, class: 'flex-line row') do
+
+    - headers.each.with_index do |(header, settings), index|
+      h1.flex-item
+        - if index.zero?
+          span.add.ico ＋
+          span.exit.ico ❌
+          = submit_tag '✓'
+
+        = render 'shared/param_inputs', settings: settings
+
+        span.title = header
+
+  - rows.each do |row_name, row_values|
+
+    = form_tag(api_doc_url(nesting: nesting), method: :put, remote: true, class: 'flex-line row') do
+
+      - headers.each_value.with_index do |(header_settings), index|
+
+        - param_value = header_settings[:value].call(row_name, row_values)
+
+        div.flex-item[class="#{'next-is-nested' if row_values.nested?}"]
+
+          - if index.zero?
+            span.ico ✏
+            span.exit.ico ❌
+            = submit_tag '✔'
+
+          = render 'shared/param_inputs', settings: header_settings, value: param_value
+
+          span.title = param_value
+
+      / = submit_tag 'Save', class: 'flex-item mod-submit'
+
     - if row_values.nested?
-      = render 'shared/table', locals: { nesting: nesting, model: row_values[:model] || row_name, rows: row_values[:nested] }
+
+      = render 'shared/table', nesting: nesting, model: row_values[:model] || row_name, rows: row_values.nested, headers: headers

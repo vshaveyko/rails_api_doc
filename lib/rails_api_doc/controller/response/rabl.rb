@@ -7,6 +7,8 @@ class RailsApiDoc::Controller::Response
   # :nodoc:
   class Rabl
 
+    include RailsApiDoc::Controller::Response::Headers
+
     class << self
 
       attr_accessor :renderer

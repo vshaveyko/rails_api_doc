@@ -4,7 +4,7 @@
 # :nodoc:
 class RailsApiDoc::Controller::Response
 
-  class Node < Struct.new(:name, :attr, :nested)
+  class Node < Struct.new(:name, :attr, :nested, :model)
 
     def nested?
       !nested.nil?

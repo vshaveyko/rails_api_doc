@@ -3,6 +3,8 @@
 # :nodoc:
 class RailsApiDoc::Controller::Parameter::Repository
 
+  extend RailsApiDoc::Controller::Parameter::Headers
+
   @repo = Hash.new { |hsh, key| hsh[key] = Hash.new { |hsh, key| hsh[key] = Param.new(key) } }
 
   class << self

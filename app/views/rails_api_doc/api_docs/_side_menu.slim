@@ -1,9 +1,9 @@
 nav.bs-docs-sidebar.hidden-print.hidden-sm.hidden-xs
  ul.side-menu.nav.bs-docs-sidenav
-   - locals[:models].each do |model|
+   - ctrls.each do |ctrl|
     li.yellow
-      a.yellow[href=('#' + model.to_s)] = model.to_s
+      a.yellow[href=('#' + ctrl.to_s)] = ctrl.to_s
       span = '('
-      a.yellow[href=('#' + model.to_s + '.request')] req,
-      a.yellow[href=('#' + model.to_s + '.response')] resp
+      a.yellow[href=('#' + ctrl.to_s + '.request')] req,
+      a.yellow[href=('#' + ctrl.to_s + '.response')] resp
       span = ')'

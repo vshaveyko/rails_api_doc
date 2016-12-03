@@ -1,21 +1,21 @@
-= render 'side_menu', locals: { models: @request_repository.keys }
+= render 'side_menu', ctrls: @registered_controllers
 
 div.content
 
-  - @request_repository.each do |model, params|
+  - @registered_controllers.each do |ctrl|
 
-    div[id=(model.to_s)]
+    div[id=(ctrl.to_s)]
 
-      h2 = model.to_s
+      h2 = ctrl.to_s
 
       p.title
         | Scopes
-        |  #{model.scopes_configuration.keys.map { |key| ":#{key}"}.join(', ')}
+        |  #{ctrl.scopes_configuration.keys.map { |key| ":#{key}"}.join(', ')}
 
       p.title
         | Request
-        = render 'request_api_table', locals: { model: model, params: params }
+        = render 'request_api_table', ctrl: ctrl, repo: @request_repository
 
       p.title
         | Response
-        = render 'response_api_table', model: model, repo: @response_repository
+        = render 'response_api_table', ctrl: ctrl, repo: @response_repository
