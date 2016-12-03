@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902193541) do
+ActiveRecord::Schema.define(version: 20161203191219) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20160902193541) do
     t.string   "comment"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "rails_api_doc_api_datum", force: :cascade do |t|
+    t.string "api_type"
+    t.string "type"
+    t.string "name"
+    t.string "special"
+    t.string "desc"
+    t.text   "nesting"
   end
 
 end

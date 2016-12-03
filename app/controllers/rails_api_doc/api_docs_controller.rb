@@ -7,6 +7,7 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
   end
 
   def index
+    pry binding
     # preload controllers for parameters to apply
     Dir.glob("#{Rails.root}/app/controllers/**/*.rb").each { |file| require_dependency file }
 
