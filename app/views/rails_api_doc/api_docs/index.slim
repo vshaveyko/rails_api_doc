@@ -1,21 +1,22 @@
-= render 'shared/side_menu', ctrls: @registered_controllers
-
 div.content
+  = render 'shared/side_menu', ctrls: @registered_controllers
 
-  - @registered_controllers.each do |ctrl|
+  div.tables
 
-    div[id=(ctrl.to_s)]
+    - @registered_controllers.each do |ctrl|
 
-      h2 = ctrl.to_s
+      div[id=(ctrl.to_s)]
 
-      p.title
-        | Scopes
-        |  #{ctrl.scopes_configuration.keys.map { |key| ":#{key}"}.join(', ')}
+        h2 = ctrl.to_s
 
-      p.title
-        | Request
-        = render 'request_api_table', ctrl: ctrl, repo: @request_repository
+        p.title
+          | Scopes
+          |  #{ctrl.scopes_configuration.keys.map { |key| ":#{key}"}.join(', ')}
 
-      p.title
-        | Response
-        = render 'response_api_table', ctrl: ctrl, repo: @response_repository
+        p.title
+          | Request
+          = render 'request_api_table', ctrl: ctrl, repo: @request_repository
+
+        p.title
+          | Response
+          = render 'response_api_table', ctrl: ctrl, repo: @response_repository
