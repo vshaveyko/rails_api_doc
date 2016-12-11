@@ -1,0 +1,8 @@
+span.blue &lt;
+span = locals[:blue_title]
+span.blue &gt;&nbsp;
+
+- if locals[:link]
+  a.yellow[style="text-decoration: none" href="#{locals[:link]}"] = locals[:yellow_title]
+- else
+  span.yellow = locals[:yellow_title]

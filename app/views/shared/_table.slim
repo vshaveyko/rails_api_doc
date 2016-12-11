@@ -3,22 +3,22 @@
 div.flex-table
 
   / header row
-  = form_tag(api_doc_url(nesting: nesting, api_type: type), method: :post, remote: true, class: 'flex-line row') do
+  = form_tag(api_doc_url(params.merge(nesting: nesting)), method: :post, remote: true, class: 'flex-line row') do
 
     - headers.each.with_index do |(header, settings), index|
       h1.flex-item
         - if index.zero?
-          span.add.ico ＋
+          span.ico ＋
           span.exit.ico ❌
           = submit_tag '✓'
 
-        = render 'shared/param_inputs', settings: settings
+        = render 'shared/param_inputs', settings: settings, val: ''
 
         span.title = header
 
   - rows.each do |row_name, row_values|
 
-    = form_tag(api_doc_url(nesting: nesting, api_type: type), method: :put, remote: true, class: 'flex-line row') do
+    = form_tag(api_doc_url(params.merge(nesting: nesting, id: row_values[:id])), method: :put, remote: true, class: 'flex-line row') do
 
       - headers.each_value.with_index do |(header_settings), index|
 
@@ -28,13 +28,14 @@ div.flex-table
 
           - if index.zero?
             span.ico ✏
+            / span.destroy-ico
             span.exit.ico ❌
             = submit_tag '✔'
 
-          = render 'shared/param_inputs', settings: header_settings, value: param_value
+          = render 'shared/param_inputs', settings: header_settings, val: param_value
 
           span.title = param_value
 
     - if row_values.nested?
 
-      = render 'shared/table', nesting: nesting, model: row_values[:model] || row_name, rows: row_values.nested, headers: headers, type: type
+      = render 'shared/table', nesting: nesting, model: row_values[:model] || row_name, rows: row_values.nested, headers: headers, params: params

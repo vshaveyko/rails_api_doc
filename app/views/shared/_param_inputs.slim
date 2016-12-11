@@ -1,8 +1,7 @@
-- value = try(:value)
 - placeholder = settings[:placeholder] || ''
 
 - case settings[:fill_type]
 - when :input
-  = text_field_tag settings[:param], nil, placeholder: placeholder
+  = text_field_tag settings[:param], val, placeholder: placeholder
 - when :select
-  = select_tag settings[:param], options_for_select(settings[:values], value)
+  = select_tag settings[:param], options_for_select(settings[:values], val), include_blank: true

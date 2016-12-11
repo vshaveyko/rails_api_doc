@@ -4,8 +4,7 @@ class Test::CommentsController < ApplicationController
 
   has_scope :article_id
 
-  parameter :body, type: String
-
+  parameter :body, type: :string
 
   def module_test_member_route
   end

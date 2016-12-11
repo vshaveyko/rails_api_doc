@@ -3,25 +3,25 @@
 module RailsApiDoc
   module Controller
     module Request
-      class Param
+      class Param < RailsApiDoc::Controller::Param
 
-        NESTED_TYPES = [:ary_object, :object, :model, Object].freeze
-
-        STRAIGHT_TYPES = [:bool, :string, :integer, :array, :datetime, :enum, String, Object, Integer, Array, DateTime].freeze
-
-        ACCEPTED_TYPES = (NESTED_TYPES + STRAIGHT_TYPES).freeze
+        #
+        # define methods for each store key
+        # type, name, etc
+        #
+        define_accessors *VALID_REQUEST_KEYS
 
         #
         # @type - type to check
         #
         def self.accepted_nested_type?(type)
-          type.in?(NESTED_TYPES)
+          type.in?(RailsApiDoc::NESTED_TYPES)
         end
 
         def self.valid_type?(type)
-          return if type.nil? || type.in?(ACCEPTED_TYPES)
+          return if type.nil? || type.in?(RailsApiDoc::ACCEPTED_TYPES)
           raise ArgumentError, "Wrong type: #{type}. " \
-          "Correct types are: #{ACCEPTED_TYPES}."
+                               "Correct types are: #{RailsApiDoc::ACCEPTED_TYPES}."
         end
 
         def self.valid_enum?(type, enum)
@@ -36,43 +36,34 @@ module RailsApiDoc
           raise ArgumentError, 'Empty object passed.'
         end
 
-        def initialize(name, store)
+        def initialize(name, store, is_new: false)
           @name = name
           @store = store
+
+          @new = []
+          @is_new = is_new
         end
 
         def nested?
           self.class.accepted_nested_type?(@store[:type])
         end
 
-        def required?
-          @store[:required]
+        def display_special
+          spec = if enum?
+                  enum
+                elsif model?
+                  model
+                end
+
+          spec || param&.special
         end
 
-        def method_missing(name, *args)
-          #
-          # define methods responding to each type with '?'
-          # ex: ary_object? array? string?
-          #
-          if name[-1] == '?'
-            type_name = name[0...-1]
+        def display_name
+          title = @name.to_s
 
-            return @store[:type] == type_name.to_sym
-          end
+          title += '*' if required?
 
-          if @store.key?(name)
-            return @store[name]
-          end
-
-          if respond_to_missing?(name)
-            return @store.public_send(name, *args)
-          end
-
-          super
-        end
-
-        def respond_to_missing?(name, *)
-          @store.respond_to?(name) || @store.key?(name)
+          title
         end
 
       end

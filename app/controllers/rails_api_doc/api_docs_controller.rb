@@ -3,14 +3,13 @@
 # :nodoc:
 class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
 
-  class NewRecord < ActiveRecord::Base
-  end
+  after_action :render_json, only: [:create, :destroy, :update]
 
   def index
     # preload controllers for parameters to apply
     Dir.glob("#{Rails.root}/app/controllers/**/*.rb").each { |file| require_dependency file }
 
-    @request_repository = RailsApiDoc::Controller::Request::Repository
+    @request_repository = RailsApiDoc::Controller::Request::Factory.repo
 
     @registered_controllers = @request_repository.registered_controllers
 
@@ -18,35 +17,35 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
   end
 
   def create
-    attributes = RailsApiDoc::Controller::AttributeParser.parse_attributes(permitted_params)
+    attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
 
-    RailsApiDoc::ApiDatum.create!(attributes)
+    @res = RailsApiDoc::ApiDatum.create!(attributes)
   end
 
   def destroy
-    attributes = RailsApiDoc::Controller::AttributeParser.parse_attributes(permitted_params)
+    attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
 
     if params[:id]
-      RailsApiDoc::ApiDatum.find(params[:id]).update!(attributes)
+      @res = RailsApiDoc::ApiDatum.find(params[:id]).update!(attributes)
     else
-      RailsApiDoc::ApiDatum.create!(attributes)
+      @res = RailsApiDoc::ApiDatum.create!(attributes)
     end
   end
 
   def update
-    attributes = RailsApiDoc::Controller::AttributeParser.parse_attributes(permitted_params)
+    attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
 
     if params[:id]
-      RailsApiDoc::ApiDatum.find(params[:id]).update!(attributes)
+      @res = RailsApiDoc::ApiDatum.find(params[:id]).update!(attributes)
     else
-      RailsApiDoc::ApiDatum.create!(attributes)
+      @res = RailsApiDoc::ApiDatum.create!(attributes)
     end
   end
 
   private
 
-  def permitted_params
-    params.permit(:name, :type, :special, :desc)
+  def render_json
+    render json: @res.as_json, status: :ok
   end
 
 end

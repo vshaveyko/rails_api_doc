@@ -23,9 +23,7 @@ module RailsApiDoc::Controller::Response
     # end
 
     def add(n)
-      if n[:attr] && n[:name] != n[:attr]
-        n[:name] = "#{n[:name]}(#{n[:attr]})"
-      end
+      n[:name] = "#{n[:name]}(#{n[:attr]})" if n[:attr] && n[:name] != n[:attr]
 
       @nodes[n[:name]] = RailsApiDoc::Controller::Response::Param.new(n[:name], n[:attr], n[:nested])
     end
@@ -159,8 +157,8 @@ module RailsApiDoc::Controller::Response
     #   merge { |item| partial("specific/#{item.to_s}", object: item) }
     #
     # def merge
-      # return unless block_given?
-      # yield
+    # return unless block_given?
+    # yield
     # end
 
     #
@@ -181,13 +179,13 @@ module RailsApiDoc::Controller::Response
     # end
     #
     # def condition(*)
-      # return unless block_given?
-      # template = sub_compile(nil, true) { yield }
-      # @attributes.extends template
+    # return unless block_given?
+    # template = sub_compile(nil, true) { yield }
+    # @attributes.extends template
     # end
     #
     def method_missing(name, *attrs)
-      return p("#{name} is not implemented in railsApiDoc") if name.in?(['merge', 'condtiion'])
+      return p("#{name} is not implemented in railsApiDoc") if name.in?(%w(merge condtiion))
       super
     end
 

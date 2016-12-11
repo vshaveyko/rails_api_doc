@@ -2,14 +2,15 @@
 
 div.response-table[id="#{ctrl}.response"  style="--row-count: #{response_headers.length}"]
 
-  - repo.map[ctrl][:actions].each do |action|
+  - repo[ctrl][:actions].each do |action|
     // TODO: Nest table in this div for easier jq toggling
     // add borders to this div
 
     - if route = repo.action_route(ctrl, action)
 
-      div.request-action-title = route
+      div.request-action-title
+        = render 'shared/title', locals: { blue_title: route[:method], yellow_title: route[:url]}
 
       - if rows = repo.load_template(ctrl, action)
 
-        = render 'shared/table', model: ctrl, rows: rows, headers: response_headers, nesting: [], type: :response
+        = render 'shared/table', model: ctrl, rows: rows, headers: response_headers, nesting: [], params: { api_action: action, api_type: :response }

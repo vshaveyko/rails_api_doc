@@ -5,8 +5,6 @@ module RailsApiDoc
     module Request
       module DSL
 
-        VALID_KEYS = [:type, :required, :enum, :model, :desc, :value].freeze #:nodoc:
-
         # Use parameter in controller to define REQUEST parameter.
         # Adds it to repository: RailsApiDoc::Controller::Request::Repository
         def parameter(name, options = {}, &block)
@@ -20,7 +18,7 @@ module RailsApiDoc
         private
 
         def validate_options(options, block_given)
-          options.assert_valid_keys(VALID_KEYS)
+          options.assert_valid_keys(RailsApiDoc::Controller::Param::VALID_KEYS)
 
           RailsApiDoc::Controller::Request::Param.valid_type?(options[:type])
         end

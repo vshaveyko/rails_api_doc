@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203191718) do
+ActiveRecord::Schema.define(version: 20161210195531) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -48,12 +48,14 @@ ActiveRecord::Schema.define(version: 20161203191718) do
   end
 
   create_table "rails_api_doc_api_data", force: :cascade do |t|
-    t.string "api_type"
-    t.string "type"
-    t.string "name"
-    t.string "special"
-    t.string "desc"
-    t.text   "nesting"
+    t.integer "api_type"
+    t.string  "action_type"
+    t.string  "api_action"
+    t.string  "type"
+    t.string  "name"
+    t.string  "special"
+    t.string  "desc"
+    t.text    "nesting"
   end
 
   create_table "rails_api_doc_api_datum", force: :cascade do |t|

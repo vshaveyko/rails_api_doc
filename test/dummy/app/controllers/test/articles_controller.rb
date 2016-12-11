@@ -2,12 +2,12 @@ class Test::ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  parameter :title, type: String
-  parameter :body, type: String, required: true
+  parameter :title, type: :string
+  parameter :body, type: :string, required: true
   parameter :rating, type: :enum, enum: [1, 2, 3]
-  parameter :data, type: :model, model: Datum do
-    parameter :creation_date, type: DateTime
-    parameter :comment, type: String
+  parameter :data_attributes, type: :object, model: 'Datum' do
+    parameter :creation_date, type: :datetime
+    parameter :comment, type: :string
   end
 
   def test_member_route

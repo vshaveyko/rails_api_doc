@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 class Api::DataController < ApplicationController
 
   before_action :set_datum, only: [:show, :edit, :update, :destroy]
 
   has_scope :creation_date
 
-  parameter :creation_date, type: DateTime
-  parameter :comment, type: String
+  parameter :creation_date, type: :datetime
+  parameter :comment, type: :string
 
   def api_member_route
   end
@@ -58,14 +60,15 @@ class Api::DataController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_datum
-      @datum = Datum.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def datum_params
-      params.require(:datum).permit(:creation_date, :comment)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_datum
+    @datum = Datum.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def datum_params
+    params.require(:datum).permit(:creation_date, :comment)
+  end
 
 end

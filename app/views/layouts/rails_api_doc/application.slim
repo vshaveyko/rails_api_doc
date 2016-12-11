@@ -12,10 +12,7 @@ html lang="en"
   body.wrap
 
     h1.header
-      span.blue &lt;
-      span Rails
-      span.blue &gt;
-      span
-      a.yellow[style="text-decoration: none" href="http://github.com/vshaveyko/rails_api_doc"] Api Documentation
+
+      = render 'shared/title', locals: { link: "http://github.com/vshaveyko/rails_api_doc", blue_title: "Rails", yellow_title: "Api Documentation" }
 
     == yield
