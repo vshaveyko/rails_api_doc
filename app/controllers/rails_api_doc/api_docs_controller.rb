@@ -3,15 +3,13 @@
 # :nodoc:
 class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
 
-  after_action :render_json, only: [:create, :destroy, :update]
-
-  def index
+  def show
     # preload controllers for parameters to apply
     Dir.glob("#{Rails.root}/app/controllers/**/*.rb").each { |file| require_dependency file }
 
-    @request_repository = RailsApiDoc::Controller::Request::Factory.repo
+    @registered_controllers = RailsApiDoc::Controller::Request::Factory.registered_controllers
 
-    @registered_controllers = @request_repository.registered_controllers
+    @request_repository = RailsApiDoc::Controller::Request::Factory.repo
 
     @response_repository = RailsApiDoc::Controller::Response::Factory.repo
   end
@@ -20,16 +18,20 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
     attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
 
     @res = RailsApiDoc::ApiDatum.create!(attributes)
+
+    redirect_to api_doc_path
   end
 
   def destroy
-    attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
-
     if params[:id]
-      @res = RailsApiDoc::ApiDatum.find(params[:id]).update!(attributes)
+      @res = RailsApiDoc::ApiDatum.find(params[:id]).destroy!
     else
+      attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
+
       @res = RailsApiDoc::ApiDatum.create!(attributes)
     end
+
+    redirect_to api_doc_path
   end
 
   def update
@@ -40,12 +42,8 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
     else
       @res = RailsApiDoc::ApiDatum.create!(attributes)
     end
-  end
 
-  private
-
-  def render_json
-    render json: @res.as_json, status: :ok
+    redirect_to api_doc_path
   end
 
 end

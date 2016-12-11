@@ -51,11 +51,13 @@ module RailsApiDoc
         def display_special
           spec = if enum?
                   enum
-                elsif model?
+                elsif nested?
                   model
                 end
 
-          spec || param&.special
+          spec = spec.to_s + "(#{param.special})" if param&.special
+
+          spec
         end
 
         def display_name

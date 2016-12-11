@@ -3,11 +3,12 @@
 # :nodoc:
 class RailsApiDoc::Controller::Request::Repository
 
-  extend RailsApiDoc::Controller::Request::Headers
+  include RailsApiDoc::Controller::Request::Headers
   extend RailsApiDoc::Controller::Repo
+  include RailsApiDoc::Controller::Repo
 
-  def self.registered_controllers
-    repo.keys
+  def initialize
+    @repo = self.class.repo.clone.transform_values { |v| v.deep_dup }
   end
 
 end

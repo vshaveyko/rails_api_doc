@@ -6,5 +6,5 @@
 RailsApiDoc::Engine.routes.draw do
   resource :api_doc
 
-  root to: 'api_docs#index'
+  root to: 'api_docs#show'
 end

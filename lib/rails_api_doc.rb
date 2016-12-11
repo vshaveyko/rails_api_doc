@@ -20,6 +20,7 @@ module RailsApiDoc
       autoload :Factory, _dir + 'factory'
       autoload :Headers, _dir + 'headers'
       autoload :Param, _dir + 'param'
+      autoload :Repository, _dir + 'repository'
     end
 
     module Request

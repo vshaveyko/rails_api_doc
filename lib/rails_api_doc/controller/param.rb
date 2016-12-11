@@ -9,7 +9,7 @@ module RailsApiDoc
       VALID_RESPONSE_KEYS = [:attr].freeze
       VALID_KEYS = (COMMON_VALID_KEYS + VALID_REQUEST_KEYS + VALID_RESPONSE_KEYS).freeze
 
-      HELPER_KEYS = [:new, :is_new, :param, :name].freeze
+      HELPER_KEYS = [:new, :is_new, :param, :name, :store].freeze
       attr_accessor *HELPER_KEYS
 
       #
@@ -59,15 +59,15 @@ module RailsApiDoc
       # these are actions applied to the params by gem user from frontend
       #
       def destroyed?
-        action_type == 'destroy'
+        param&.action_type == 'destroy'
       end
 
       def created?
-        action_type == 'create'
+        param&.action_type == 'create'
       end
 
       def updated?
-        action_type == 'update'
+        param&.action_type == 'update'
       end
 
       def add_updated_field(field)

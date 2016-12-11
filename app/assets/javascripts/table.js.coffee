@@ -17,11 +17,20 @@ $ ->
   $('.flex-table input, .flex-table select').on 'click', (e) ->
     e.stopPropagation()
 
-  $('.ico').on 'click', (e) ->
+  $('span.ico').on 'click', (e) ->
     self = $(this)
     e.preventDefault()
     e.stopPropagation()
     self.closest('.row').toggleClass('is-active')
+
+  $('.destroy').on 'click', (e) ->
+    self = $(this)
+
+    self.closest('.flex-line').toggleClass('destroyed')
+
+  $('form.flex-line').on 'submit', () ->
+    $(this).addClass('updated')
+    $(this).removeClass('is-active')
 
   # _header_height = $('.aside').offset().top
 

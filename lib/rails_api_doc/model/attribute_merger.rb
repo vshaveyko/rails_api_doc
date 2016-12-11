@@ -33,6 +33,8 @@ class RailsApiDoc::Model::AttributeMerger
 
     attrs, nesting, name = _parse_settings(param)
 
+    return unless name
+
     ctrl_param = _find_param(nesting, name, attrs)
 
     ctrl_param.param = param
@@ -42,7 +44,7 @@ class RailsApiDoc::Model::AttributeMerger
   def _parse_settings(param)
     ctrl = param.nesting[0].constantize
     nesting = param.nesting[1..-1]
-    name = param.name.to_sym
+    name = param.name&.to_sym
     attrs = @attrs[ctrl]
 
     #

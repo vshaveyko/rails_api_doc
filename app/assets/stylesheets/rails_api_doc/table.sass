@@ -52,10 +52,18 @@
     padding: 1% 2%
     position: absolute
     left: 2%
+    border-radius: 100%
+
+    &.destroy
+      left: 10%
+
+      color: #FB667A
+
+      text-decoration: none
 
     &:hover
-      background-color: #FFF842
-      color: #403E10
+      background-color: black//#FFF842
+      color: white
 
       transition-delay: 0s
       transition-duration: 0.4s
@@ -73,6 +81,15 @@
     color: #FB667A
 
   background: lightgreen
+
+  &.created
+    border: 2px solid #1E90FF
+
+  &.destroyed
+    border: 2px solid #DC143C
+
+  &.updated
+    border: 2px solid #00FF00
 
   &.row
     display: flex
@@ -128,8 +145,8 @@
 div.flex-item
 
   &:hover
-    background-color: #FFF842
-    color: #403E10
+    background-color: #4DC3FA //#FFF842
+    color: white
 
     transition-delay: 0s
     transition-duration: 0.4s
