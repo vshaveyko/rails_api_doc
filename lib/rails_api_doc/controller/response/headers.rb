@@ -7,7 +7,6 @@ module RailsApiDoc::Controller::Response::Headers
 
   RESPONSE_HEADERS = [
     NAME_HEADER,
-    TYPE_HEADER,
     VALUE_HEADER,
     DESC_HEADER
   ].reduce(&:merge).freeze

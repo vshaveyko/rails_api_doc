@@ -18,6 +18,8 @@ class RailsApiDoc::Model::AttributeMerger
   def call(api_type:)
     @api_type = api_type
 
+    return @attrs if api_type == 'response'
+
     api_params = MODEL.where(api_type: api_type).all.each do |param|
       _add_nested_param(param)
     end
@@ -46,12 +48,6 @@ class RailsApiDoc::Model::AttributeMerger
     nesting = param.nesting[1..-1]
     name = param.name&.to_sym
     attrs = @attrs[ctrl]
-
-    #
-    # making exception
-    # until request parameters are not split by actions
-    #
-    attrs = attrs[param.api_action] if @api_type == 'response'
 
     [attrs, nesting, name]
   end
@@ -82,8 +78,8 @@ class RailsApiDoc::Model::AttributeMerger
     end
   end
 
-  def _find_param(nesting, name, attrs)
-    nesting.each do |model|
+  def _find_param(nest, name, attrs)
+    nest.each do |model|
       nested_attrs = attrs.each_value.detect { |v| v.nested? && v.model == model }
 
       attrs = nested_attrs ? nested_attrs : _define_nesting_level(attrs, name, model)
