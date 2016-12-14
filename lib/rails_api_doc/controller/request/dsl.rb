@@ -7,17 +7,21 @@ module RailsApiDoc
 
         # Use parameter in controller to define REQUEST parameter.
         # Adds it to repository: RailsApiDoc::Controller::Request::Repository
-        def parameter(name, options = {}, &block)
+        def parameter(*arguments, &block)
+          options = arguments.extract_options!
+
           raise ArgumentError, 'Parameter already defined.' if repo.key?(name)
 
           validate_options(options, block_given?)
 
-          define_parameter(name, options, &block)
+          arguments.each do |param_name|
+            define_parameter(param_name, options, &block)
+          end
         end
 
         private
 
-        def validate_options(options, block_given)
+        def validate_options(options, _block_given)
           options.assert_valid_keys(RailsApiDoc::Controller::Param::VALID_KEYS)
 
           RailsApiDoc::Controller::Request::Param.valid_type?(options[:type])
