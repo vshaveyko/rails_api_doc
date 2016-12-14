@@ -5,8 +5,24 @@ module RailsApiDoc
     module Request
       module DSL
 
+        #
         # Use parameter in controller to define REQUEST parameter.
         # Adds it to repository: RailsApiDoc::Controller::Request::Repository
+        # Params can be defined in several ways:
+        # 1. parameter :name, type: :string
+        #
+        # 2. parameter {
+        #   dose_form_attributes: { model: 'Rxnorm::RxDoseForm' },
+        #   input_method_attributes: { model: 'TreatmentInfo::InputMethod' },
+        #   input_condition_attributes: { model: 'Drugs::InputCondition' },
+        #   input_duration_attributes: { model: 'Drugs::InputDuration' }
+        # }, type: :object do
+        #   parameter :id
+        #   parameter :name
+        # end
+        #
+        # 3. parameter :name, :code, type: :string
+        #
         def parameter(*arguments, &block)
           options = arguments.extract_options!
 
@@ -14,8 +30,17 @@ module RailsApiDoc
 
           validate_options(options, block_given?)
 
-          arguments.each do |param_name|
-            define_parameter(param_name, options, &block)
+          arguments.each do |param|
+            # 2)
+            if param.is_a?(Hash)
+              param.each do |param_name, additional_options|
+                _options = options.merge(additional_options)
+
+                define_parameter(param_name, _options, &block)
+              end
+            else # 1), 3)
+              define_parameter(param_name, options, &block)
+            end
           end
         end
 
