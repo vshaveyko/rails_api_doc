@@ -159,6 +159,7 @@ Parameter type may be one of these:
 :array - array of atomic values (integer, strings, etc)
 :datetime - string with some datetime representation accepted by DateTime.parse
 :enum - one of predefined values of enum: option (only atomic types)
+:model - model reference e.g. :author_id, add model value as model: 'Author' after this
 
 # nested
 :object - usual nested type. comes very handy with rails nested_attributes feature
