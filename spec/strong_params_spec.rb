@@ -26,7 +26,7 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
       end
 
       def index
-        render json: resource_params
+        render json: strong_params
       end
     end
 
@@ -34,7 +34,7 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
       JSON.parse response.body
     end
 
-    describe :resource_params do
+    describe :strong_params do
       it 'filters redundant parameters' do
         given = {
           name: 'James',

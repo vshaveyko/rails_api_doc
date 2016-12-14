@@ -22,7 +22,7 @@ Or install it yourself as:
 + displaying application api if used in one of correct ways
   ![alt tag](https://raw.githubusercontent.com/vshaveyko/rails_api_doc/master/preview.png)
 + Integration with Rabl if it is bundled
-+ ```resource_params``` method that will filter incoming params for you
++ ```strong_params``` method that will filter incoming params for you
 
 ## Usage
 
@@ -75,7 +75,7 @@ To display api documentation on route '/api_doc' you need to:
 
     # controller action
     def create
-      Comment.create!(resource_params)
+      Comment.create!(strong_params)
     end
 
   ```
