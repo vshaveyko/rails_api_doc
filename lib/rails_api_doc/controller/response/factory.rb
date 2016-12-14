@@ -8,11 +8,7 @@ class RailsApiDoc::Controller::Response::Factory
     # TODO: add more options later depending on app settings
     # TODO: rename to :load_repo
     def repo
-      attributes = RailsApiDoc::Controller::Response::Repository.new(repository.repo)
-
-      attributes = merge_attributes_from_model attributes
-
-      attributes
+      RailsApiDoc::Controller::Response::Repository.new(repository.repo)
     end
 
     def controllers
@@ -23,13 +19,6 @@ class RailsApiDoc::Controller::Response::Factory
 
     def repository
       @repo ||= ::RailsApiDoc::Controller::Response::Rabl.new(controllers)
-    end
-
-    #
-    # do not mutate attributes
-    #
-    def merge_attributes_from_model(attributes)
-      RailsApiDoc::Model::AttributeMerger.new(attributes).call(api_type: 'response')
     end
 
   end

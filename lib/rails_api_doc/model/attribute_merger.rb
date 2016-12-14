@@ -6,22 +6,38 @@ class RailsApiDoc::Model::AttributeMerger
   MODEL = RailsApiDoc::ApiDatum
   MERGABLE_FIELDS = [:type, :desc, :action_type].freeze
 
+  @@data = MODEL.all
+
   #
   # do not mutate attributes
   #
   # please - impossible
   #
-  def initialize(attributes)
-    @attrs = attributes
+  def initialize(attributes, api_type)
+    @attrs = attributes.stringify_keys
+    @api_type = api_type
   end
 
-  def call(api_type:)
-    @api_type = api_type
+  def merge_action(action:, ctrl:)
+    merge_data = @@data.select { |d| d.api_type == @api_type && d.api_action == action.to_s && d.nesting.first == ctrl.name }
 
-    return @attrs if api_type == 'response'
+    merge_data.each do |param|
+      _add_nested_param(param, param.nesting[1..-1], @attrs)
+    end
 
-    api_params = MODEL.where(api_type: api_type).all.each do |param|
-      _add_nested_param(param)
+    @attrs
+  end
+
+  def call
+    api_params = @@data.select { |d| d.api_type == @api_type }.each do |param|
+      #
+      # nesting should be present for parameter to appear
+      #
+      next unless param.name && param.nesting.present?
+
+      attrs, nesting, name = _parse_settings(param)
+
+      _add_nested_param(param, nesting, attrs)
     end
 
     @attrs
@@ -29,15 +45,8 @@ class RailsApiDoc::Model::AttributeMerger
 
   private
 
-  def _add_nested_param(param)
-    # nesting should be present for parameter to appear
-    return if param.nesting.blank?
-
-    attrs, nesting, name = _parse_settings(param)
-
-    return unless name
-
-    ctrl_param = _find_param(nesting, name, attrs)
+  def _add_nested_param(param, nesting, attrs)
+    ctrl_param = _find_param(nesting, param.name, attrs)
 
     ctrl_param.param = param
     # _merge_data_to_param(ctrl_param, param)
@@ -80,16 +89,16 @@ class RailsApiDoc::Model::AttributeMerger
 
   def _find_param(nest, name, attrs)
     nest.each do |model|
-      nested_attrs = attrs.each_value.detect { |v| v.nested? && v.model == model }
+      #
+      # model on different fields because of wrong nesting sturcture for request
+      # TODO: fix this later
+      #
+      nested_attrs = attrs.detect { |k, v| v.nested? && (v.model == model || k.to_s == model)  }
 
       attrs = nested_attrs ? nested_attrs : _define_nesting_level(attrs, name, model)
     end
 
-    if attrs[name]
-      attrs[name]
-    else
-      attrs[name] = _init_param_for_api_type(name)
-    end
+    attrs[name] ||= _init_param_for_api_type(name, {})
   end
 
   def _define_nesting_level(attrs, name, model)

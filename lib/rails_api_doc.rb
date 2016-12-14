@@ -1,6 +1,7 @@
 # author: Vadim Shaveiko <@vshaveyko>
 # frozen_string_literal: true
 module RailsApiDoc
+  
   NESTED_TYPES = [:ary_object, :object, :json].freeze
 
   STRAIGHT_TYPES = [:bool, :string, :integer, :array, :datetime, :enum, :model].freeze

@@ -18,6 +18,7 @@ class RailsApiDoc::Model::AttributeParser
         action_type: params[:action],
         nesting: params[:nesting],
         api_type: params[:api_type],
+        api_action: params[:api_action],
         id: params[:id]
       }.compact
     end

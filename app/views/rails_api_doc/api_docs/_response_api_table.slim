@@ -11,6 +11,6 @@ div.response-table[id="#{ctrl}.response"  style="--row-count: #{response_headers
       div.request-action-title
         = render 'shared/title', locals: { blue_title: route[:method], yellow_title: route[:url]}
 
-      - if rows = repo.load_template(ctrl, action)
+      - if rows = repo.load_attrs(ctrl, action)
 
         = render 'shared/table', model: ctrl, rows: rows, headers: response_headers, nesting: [], params: { api_action: action, api_type: :response }

@@ -4,11 +4,11 @@ class RailsApiDoc::Controller::Request::Factory
   class << self
 
     def repo
-      attributes = RailsApiDoc::Controller::Request::Repository.new
+      repo = RailsApiDoc::Controller::Request::Repository.new
 
-      attributes = merge_attributes_from_model attributes
+      repo.repo = merge_attributes_from_model repo.repo
 
-      attributes
+      repo
     end
 
     def registered_controllers
@@ -21,7 +21,7 @@ class RailsApiDoc::Controller::Request::Factory
     # do not mutate attributes
     #
     def merge_attributes_from_model(attributes)
-      RailsApiDoc::Model::AttributeMerger.new(attributes).call(api_type: 'request')
+      RailsApiDoc::Model::AttributeMerger.new(attributes, 'request').call
     end
 
   end

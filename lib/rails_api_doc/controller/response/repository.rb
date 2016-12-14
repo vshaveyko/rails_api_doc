@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# author: Vadim Shaveiko <@vshaveyko>
 # :nodoc:
 class RailsApiDoc::Controller::Response::Repository
 
@@ -5,7 +7,15 @@ class RailsApiDoc::Controller::Response::Repository
   include RailsApiDoc::Controller::Response::Headers
 
   def initialize(repo)
-    @repo = repo.clone.transform_values { |v| v.deep_dup }
+    @repo = repo.clone.transform_values(&:deep_dup)
+  end
+
+  def load_attrs(ctrl, action)
+    at = load_template(ctrl, action)&.nodes || {}
+
+    at = RailsApiDoc::Model::AttributeMerger.new(at, 'response').merge_action(action: action, ctrl: ctrl)
+
+    at
   end
 
   def load_template(ctrl, action)

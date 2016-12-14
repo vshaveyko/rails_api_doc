@@ -9,6 +9,7 @@ describe service do
       nesting: ['value'],
       special: '1,2,3',
       action: 'action',
+      api_action: 'show',
       type: 'enum',
       id: 5,
       desc: 'enum value'
@@ -18,6 +19,7 @@ describe service do
       type: :enum,
       nesting: ['value'],
       action_type: 'action',
+      api_action: 'show',
       special: [1, 2, 3],
       id: 5,
       desc: 'enum value'

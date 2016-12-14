@@ -29,7 +29,7 @@ div.flex-table
           - if index.zero?
             span.ico ✏
             / = submit_tag ,name: 'destroy', class: 'ico destroy'
-            = link_to '❌' , api_doc_url(construct_destroy_param(row_values, params, nesting)), method: :delete,  class: 'destroy ico'
+            = link_to '❌' , api_doc_url(construct_destroy_param(row_values, params, nesting)), method: :delete,data: { confirm: 'Are you sure?' }, class: 'destroy ico'
             span.exit.ico ❌
             = submit_tag '✔'
 
