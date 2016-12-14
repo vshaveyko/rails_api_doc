@@ -9,9 +9,10 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
 
   describe ApplicationController do
     controller do
-      parameter :name, type: String, required: true
+      parameter :name, type: :string, required: true
+      parameter :val, type: :integer, value: proc { 5 }
 
-      parameter :age, type: Integer
+      parameter :age, type: :integer
 
       parameter :is_married, type: :bool
 
@@ -28,6 +29,7 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
       def index
         render json: strong_params
       end
+
     end
 
     def json_resp
@@ -43,7 +45,7 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
           is_married: true
         }
 
-        expected = { 'name' => 'James', 'age' => '27', 'is_married' => 'true' }
+        expected = { 'name' => 'James', 'age' => '27', 'is_married' => 'true', 'val' => 5 }
 
         get :index, params: given
 
@@ -53,11 +55,13 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
       it 'filters redundant parameters in nested objects' do
         given = {
           name: 'James',
+          val: 3,
           wife_attributes: { name: 'Joan', age: '25', cheating: true }
         }
 
         expected = {
           'name' => 'James',
+          'val' => 5,
           'wife_attributes' => { 'name' => 'Joan', 'age' => '25' }
         }
 
@@ -73,7 +77,8 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
         }
 
         expected = {
-          'name' => 'James'
+          'name' => 'James',
+          'val' => 5
         }
 
         get :index, params: given
@@ -84,6 +89,7 @@ describe RailsApiDoc::Controller::ResourceParams, type: :controller do
       it 'parses array of objects on type ary_object' do
         given = {
           name: 'James',
+          val: 5,
           children_attributes: [{ name: 'Jim', age: '5' }]
         }
 

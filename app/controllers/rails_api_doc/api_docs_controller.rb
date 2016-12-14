@@ -16,7 +16,6 @@ class RailsApiDoc::ApiDocsController < RailsApiDoc::ApplicationController
 
   def create
     attributes = RailsApiDoc::Model::AttributeParser.parse_attributes(params)
-    pry binding
 
     @res = RailsApiDoc::ApiDatum.create!(attributes)
 

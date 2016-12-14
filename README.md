@@ -56,7 +56,16 @@ To display api documentation on route '/api_doc' you need to:
           parameter :comment, type: :string
         end
       end
-      parameter :test, type: String, required: true
+      parameter :test, type: :string, required: true
+
+      parameter({
+        articles_attributes: { model: 'Article', type: :ary_object },
+        data_attributes: { model: 'Datum' },
+        comments_attributes: { model: 'Comment', type: :ary_object }
+      }, type: :object) do
+        parameter :id
+        parameter :name
+      end
 
     end
   ```
@@ -83,6 +92,52 @@ To display api documentation on route '/api_doc' you need to:
   and if request is `POST '/comments', params: { body: 'Comment body', title: 'Comment title', age: 34 }`
 
   Comment will be created with: `Comment(body='Comment body', title='Comment title', age=nil)`
+
+## Value
+
+  You can pass optional value argument to every parameter:
+
+  ```ruby
+    parameter :val, type: :integer, value: -> (request_value) { 5 }
+  ```
+
+  on every matching request value in this field will be overriden by value returned by proc.
+
+  value field expecting anything that will respond to `:call` and can accept one argument(param value from request)
+
+  you should expect that value passed can be `nil`
+
+  This can be used to force values on some fields, or modify values passed to request in some ways.
+
+  E.g. you want to force current_user_id on model creation instead of passing it from frontend.
+
+## Enum
+
+  When you defined parameter type as `:enum` you can pass `enum:` option. This will filter parameter by values provided.
+
+## Group common blocks
+
+  You can define parameters that have common fields this way:
+
+  ```ruby
+    parameter({
+      articles_attributes: { model: 'Article', type: :ary_object },
+      data_attributes: { model: 'Datum' },
+      comments_attributes: { model: 'Comment', type: :ary_object }
+    }, type: :object) do
+      parameter :id
+      parameter :name
+    end
+  ```
+
+  Pass common values as last optional arguments and uniq definitions as hash value.
+  All nesting parameters are applied to elements in blocks.
+
+  Something with same type can be defined like this:
+
+  ```ruby
+    parameter :name, :desc, type: :string
+  ```
 
 ## Types
 

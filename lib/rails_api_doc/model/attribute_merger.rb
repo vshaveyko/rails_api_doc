@@ -53,7 +53,7 @@ class RailsApiDoc::Model::AttributeMerger
   end
 
   def _parse_settings(param)
-    ctrl = param.nesting[0].constantize
+    ctrl = param.nesting[0]
     nesting = param.nesting[1..-1]
     name = param.name&.to_sym
     attrs = @attrs[ctrl]
@@ -128,7 +128,7 @@ class RailsApiDoc::Model::AttributeMerger
     if @api_type == 'request'
       RailsApiDoc::Controller::Request::Param.new(name, options, is_new: true)
     elsif @api_type == 'response'
-      RailsApiDoc::Controller::Response::Param.new(name, name, options[:nested], options[:model], '', options[:type], is_new: true)
+      RailsApiDoc::Controller::Response::Param.new(name, name, options[:nested], options[:model], nil, options[:type], is_new: true)
     end
   end
 

@@ -46,6 +46,10 @@ module RailsApiDoc
         #
         def loop_params(params, level_permitted_params, accepted_params)
           level_permitted_params.each do |param_name, api_param_data|
+            if api_param_data.value&.respond_to?(:call)
+              params[param_name] = api_param_data.value.call(params[param_name])
+            end
+
             controller_param = params[param_name]
 
             _check_required(param_name, controller_param, api_param_data) # raise if required and no value

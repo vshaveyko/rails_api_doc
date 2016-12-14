@@ -2,4 +2,4 @@
 
 div[id="#{ctrl}.request" style="--row-count: #{request_headers.length}"]
 
-  = render 'shared/table', model: ctrl, rows: repo[ctrl], headers: request_headers, nesting: [], params: { api_type: :request }
+  = render 'shared/table', model: ctrl, rows: repo[ctrl.name], headers: request_headers, nesting: [], params: { api_type: :request }
