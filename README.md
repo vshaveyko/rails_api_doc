@@ -115,6 +115,14 @@ To display api documentation on route '/api_doc' you need to:
 
   When you defined parameter type as `:enum` you can pass `enum:` option. This will filter parameter by values provided.
 
+  E.g.:
+
+  ```ruby
+    parameter :rating, type: :enum, enum: [1, 2, 3]
+  ```
+
+  All enum values are parsed as strings, since controller params are always strings. Still you may write them as you want. Every member of enum array will be replaced with `&:to_s` version.
+
 ## Group common blocks
 
   You can define parameters that have common fields this way:
