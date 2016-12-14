@@ -39,7 +39,7 @@ module RailsApiDoc
                 define_parameter(param_name, _options, &block)
               end
             else # 1), 3)
-              define_parameter(param_name, options, &block)
+              define_parameter(param, options, &block)
             end
           end
         end
