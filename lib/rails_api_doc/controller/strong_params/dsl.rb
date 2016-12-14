@@ -11,7 +11,9 @@ module RailsApiDoc
           #
           # accepted_params for permit
           #
-          pars.permit(params_to_permit)
+          permitted = params_to_permit(pars)
+
+          pars.permit(permitted)
         end
 
       end

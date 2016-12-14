@@ -7,8 +7,8 @@ module RailsApiDoc
 
         private
 
-        def params_to_permit
-          _next_nesting_level(params, param_data: _permitted_params)
+        def params_to_permit(pars = params)
+          _next_nesting_level(pars, param_data: _permitted_params)
         end
 
         def _permitted_params
@@ -31,7 +31,6 @@ module RailsApiDoc
 
           level_accepted_params
         end
-
 
         #
         # loop through current level of params and add to permit level if all requirements are met
@@ -63,7 +62,6 @@ module RailsApiDoc
                                     param_data: api_param_data.nested,
                                     current_accepted_params: accepted_params,
                                     param_name: param_name)
-
               end
             elsif api_param_data.nested? # value should be nested object
               _next_nesting_level(controller_param,
