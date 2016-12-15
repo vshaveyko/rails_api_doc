@@ -47,7 +47,7 @@ module RailsApiDoc
         def loop_params(params, level_permitted_params, accepted_params)
           level_permitted_params.each do |param_name, api_param_data|
             if api_param_data.value&.respond_to?(:call)
-              params[param_name] = api_param_data.value.call(params[param_name])
+              params[param_name] = instance_eval(&api_param_data.value)
             end
 
             controller_param = params[param_name]
