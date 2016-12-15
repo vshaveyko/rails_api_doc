@@ -73,6 +73,8 @@ module RailsApiDoc
                                   current_accepted_params: accepted_params,
                                   param_name: param_name)
 
+            elsif api_param_data.array?
+              accepted_params.last[param_name] = []
             else # all other options
               accepted_params.unshift(param_name)
             end
