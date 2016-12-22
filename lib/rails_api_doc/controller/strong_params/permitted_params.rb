@@ -64,7 +64,10 @@ module RailsApiDoc
             # value present but not valid for this type => skip
             next unless RailsApiDoc::Config::Validator.valid_param?(controller_param, api_param_data)
 
-            if api_param_data.ary_object? # controller_param value should be array of objects
+            if controller_param.nil?
+              accepted_params.unshift(param_name)
+
+            elsif api_param_data.ary_object? # controller_param value should be array of objects
               controller_param.each do |single_controller_param|
                 _next_nesting_level(single_controller_param,
                                     param_data: api_param_data.nested,
