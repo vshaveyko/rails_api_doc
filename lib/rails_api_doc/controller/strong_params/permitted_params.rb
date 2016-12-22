@@ -54,8 +54,12 @@ module RailsApiDoc
 
             _check_required(param_name, controller_param, api_param_data) # raise if required and no value
 
+            #
             # no value present && not required => skip
-            next unless controller_param
+            #
+            # nil value is still ok params.key?(param_key) returns true if we have params = { param_key => nil }
+            #
+            next unless params.key?(param_name)
 
             # value present but not valid for this type => skip
             next unless RailsApiDoc::Config::Validator.valid_param?(controller_param, api_param_data)
