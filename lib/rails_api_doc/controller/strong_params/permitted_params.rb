@@ -24,7 +24,9 @@ module RailsApiDoc
           level_accepted_params = [{}]
 
           if param_name && current_accepted_params # no param name and current_accepted_params on first iteration
-            current_accepted_params.last[param_name] = level_accepted_params
+            current_accepted_params.last[param_name] ||= level_accepted_params
+
+            level_accepted_params = current_accepted_params.last[param_name]
           end
 
           loop_params(controller_param, param_data, level_accepted_params)
@@ -46,6 +48,8 @@ module RailsApiDoc
         #
         def loop_params(params, level_permitted_params, accepted_params)
           level_permitted_params.each do |param_name, api_param_data|
+            next if accepted_params.include?(param_name) || accepted_params.last.key?(param_name)
+
             if api_param_data.value&.respond_to?(:call)
               params[param_name] = instance_eval(&api_param_data.value)
             end
@@ -65,13 +69,11 @@ module RailsApiDoc
             next unless RailsApiDoc::Config::Validator.valid_param?(controller_param, api_param_data)
 
             if api_param_data.ary_object? # controller_param value should be array of objects
-              if controller_param
-                controller_param.each do |single_controller_param|
-                  _next_nesting_level(single_controller_param,
-                                      param_data: api_param_data.nested,
-                                      current_accepted_params: accepted_params,
-                                      param_name: param_name)
-                end
+              controller_param&.each do |single_controller_param|
+                _next_nesting_level(single_controller_param,
+                                    param_data: api_param_data.nested,
+                                    current_accepted_params: accepted_params,
+                                    param_name: param_name)
               end
             elsif api_param_data.nested? # value should be nested object
               if controller_param
