@@ -1,12 +1,18 @@
 # author: Vadim Shaveiko <@vshaveyko>
 # frozen_string_literal: true
 module RailsApiDoc
-  
+
   NESTED_TYPES = [:ary_object, :object, :json].freeze
 
   STRAIGHT_TYPES = [:bool, :string, :integer, :array, :datetime, :enum, :model].freeze
 
   ACCEPTED_TYPES = (NESTED_TYPES + STRAIGHT_TYPES).freeze
+
+  def self.const_missing?
+    pry binding
+  end
+
+  _dir = 'rails_api_doc/'
 
   module Controller
     _dir = 'rails_api_doc/controller/'
@@ -42,6 +48,16 @@ module RailsApiDoc
     end
   end
 
+  require _dir + 'params/main'
+  class Params
+
+    _dir = 'rails_api_doc/params/'
+
+    autoload :DSL, _dir + 'dsl'
+    autoload :Finder, _dir + 'finder'
+
+  end
+
   module Model
     _dir = 'rails_api_doc/model/'
 
@@ -49,7 +65,7 @@ module RailsApiDoc
     autoload :AttributeParser, _dir + 'attribute_parser'
   end
 
-  require 'rails_api_doc/config'
+  require _dir + 'config'
   class Config
 
     _dir = 'rails_api_doc/config/'
