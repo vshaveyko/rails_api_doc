@@ -106,7 +106,7 @@ module RailsApiDoc
         end
 
         def second_argument_is_type?(args)
-          RailsApiDoc::ACCEPTED_TYPES.include?(args[1].to_sym)
+          RailsApiDoc::ACCEPTED_TYPES.include?(args[1]&.to_sym)
         end
 
       end
