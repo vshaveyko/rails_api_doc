@@ -42,32 +42,6 @@ describe service do
     expect(service.parse_attributes(given)).to eq expected
   end
 
-  # it 'parses commaseparated values' do
-    # given = {
-      # enum: '23enum1, 34enum2'
-    # }
-#
-    # expected = {
-      # type: :enum,
-      # enum: ['23enum1', ' 34enum2']
-    # }
-#
-    # expect(service.parse_attributes(given)).to eq expected
-  # end
-
-  # it 'correctly parses enum array of string attributes' do
-    # given = {
-      # enum: "['enum1','enum2']"
-    # }
-#
-    # expected = {
-      # type: :enum,
-      # enum: %w(enum1 enum2)
-    # }
-#
-    # expect(service.parse_attributes(given)).to eq expected
-  # end
-#
   it 'correctly parses camelcased names attributes' do
     given = {
       name: 'CamelCasedName',
@@ -167,4 +141,4 @@ describe service do
 
     expect(service.parse_attributes(given)).to eq expected
   end
-en
+end

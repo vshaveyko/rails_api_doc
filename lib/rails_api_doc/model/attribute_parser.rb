@@ -54,7 +54,7 @@ class RailsApiDoc::Model::AttributeParser
     def parse_special(type, special)
       return unless special.present? && type
 
-      if type == :enum
+      if type.to_sym == :enum
         parse_enum(special) # parse as enum array value
       elsif RailsApiDoc::NESTED_TYPES.include?(type.to_sym)
         special.capitalize # parse as model name

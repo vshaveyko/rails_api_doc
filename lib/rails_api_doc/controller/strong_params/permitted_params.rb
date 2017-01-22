@@ -5,11 +5,14 @@ module RailsApiDoc
     module ResourceParams
       module PermittedParams
 
-        private
-
+        #
+        # accepted_params for permit
+        #
         def params_to_permit(pars = params)
           _next_nesting_level(pars, param_data: _permitted_params)
         end
+
+        private
 
         def _permitted_params
           ::RailsApiDoc::Controller::Request::Repository[self.class]

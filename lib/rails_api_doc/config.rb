@@ -3,7 +3,12 @@
 # :nodoc:
 class RailsApiDoc::Config
 
-  attr_accessor :check_params_type
+  attr_accessor :check_params_type, :params_dir
+
+  # init default values
+  def initialize
+    @params_dir = 'params'
+  end
 
   def check_params_type=(value)
     if value
