@@ -1,6 +1,4 @@
-[![CircleCI](https://circleci.com/gh/vshaveyko/rails_api_doc/tree/master.svg?style=svg&circle-token=cc544085bb94b3f8613cfab79e9618bf20ce7138)](https://circleci.com/gh/vshaveyko/rails_api_doc/tree/master)
-
-# RailsApiDoc
+# RailsApiDoc [![CircleCI](https://circleci.com/gh/vshaveyko/rails_api_doc/tree/master.svg?style=svg&circle-token=cc544085bb94b3f8613cfab79e9618bf20ce7138)](https://circleci.com/gh/vshaveyko/rails_api_doc/tree/master)
 
 ## Installation
 
