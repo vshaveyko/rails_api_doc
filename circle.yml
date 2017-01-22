@@ -11,5 +11,5 @@ database:
     - cd ~/health24/backend && bundle install
 
 test:
-  overrid:
+  override:
     - rspec
