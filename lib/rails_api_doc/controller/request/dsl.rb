@@ -23,12 +23,17 @@ module RailsApiDoc
         #
         # 3. parameter :name, :code, type: :string
         #
+        # 4. param :name, :string, model: 'Name'
+        #
         def parameter(*arguments, &block)
           options = arguments.extract_options!
 
           raise ArgumentError, 'Parameter already defined.' if repo.key?(name)
 
           validate_options(options, block_given?)
+
+          # 4)
+          return if second_argument_type_def(options, arguments)
 
           arguments.each do |param|
             # 2)
@@ -43,6 +48,9 @@ module RailsApiDoc
             end
           end
         end
+
+        alias param parameter
+        alias req parameter
 
         private
 
@@ -73,12 +81,32 @@ module RailsApiDoc
         end
 
         def nested_parameter(parameter_data)
-          _backup_repo = @repo
+          backup_repo = @repo
           @repo = {}
           yield
           parameter_data.merge(nested: @repo)
         ensure
-          @repo = _backup_repo
+          @repo = backup_repo
+        end
+
+        #
+        # Checks whetjher parameters can be defined by type 4)
+        # if possible - do it
+        # otherwise pass next
+        #
+        def second_argument_type_def(options, args)
+          is_ok = second_argument_is_type?(args)
+
+          return false unless is_ok
+          param = args[0]
+          options[:type] = args[1]
+
+          define_parameter(param, options, &block)
+          true
+        end
+
+        def second_argument_is_type?(args)
+          RailsApiDoc::ACCEPTED_TYPES.include?(args[1].to_sym)
         end
 
       end
