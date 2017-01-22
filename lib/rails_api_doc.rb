@@ -8,10 +8,6 @@ module RailsApiDoc
 
   ACCEPTED_TYPES = (NESTED_TYPES + STRAIGHT_TYPES).freeze
 
-  def self.const_missing?
-    pry binding
-  end
-
   _dir = 'rails_api_doc/'
 
   module Controller

@@ -23,7 +23,11 @@ RSpec.describe RailsApiDoc do
     it 'Will return correct strong params from ctrl_strong_params' do
       ctrl = TestCtrl.new
 
-      expect(ctrl.ctrl_strong_params.first).to eq(:name)
+      def ctrl.params
+        ActionController::Parameters.new(name: 'value', random: 'rand')
+      end
+
+      expect(ctrl.ctrl_strong_params).to eq(name: 'value')
     end
   end
 
@@ -47,7 +51,11 @@ RSpec.describe RailsApiDoc do
 
       ctrl = TestCtrl.new
 
-      expect(ctrl.ctrl_strong_params.first).to eq(:age)
+      def ctrl.params
+        ActionController::Parameters.new(name: 'name', age: 3)
+      end
+
+      expect(ctrl.ctrl_strong_params).to eq(age: 3)
     end
   end
 end

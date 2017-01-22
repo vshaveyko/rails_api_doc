@@ -165,6 +165,6 @@ describe service do
       api_type: 'request'
     }
 
-    expect(service.parse_attributes(given)).to eq expected
+  expect(service.parse_attributes(given)).to eq expected
   end
-en
+end
