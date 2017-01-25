@@ -15,7 +15,7 @@ module RailsApiDoc
         private
 
         def _permitted_params
-          ::RailsApiDoc::Controller::Request::Repository[self.class]
+          ::RailsApiDoc::Controller::Request::Repository.params_for_klass(self.class)
         end
 
         #
