@@ -4,18 +4,27 @@
 class RailsApiDoc::Controller::Request::Repository
 
   include RailsApiDoc::Controller::Request::Headers
+
   extend RailsApiDoc::Controller::Repo
   include RailsApiDoc::Controller::Repo
 
-  def self.params_for_klass(klass)
-    params = {}
+  class << self
 
-    while klass != ActionController::Base
-      params.merge!(self[klass])
-      klass = klass.superclass
+    def params_for_klass(klass)
+      params = {}
+
+      until _abstract_class(klass)
+        params.merge!(self[klass])
+        klass = klass.superclass
+      end
+
+      params
     end
 
-    params
+    def _abstract_class(klass)
+      klass == ActionController::Base || klass == RailsApiDoc::Params
+    end
+
   end
 
   def initialize
