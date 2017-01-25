@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 # author: Vadim Shaveiko <@vshaveyko>
 require 'rails_helper'
-
 RSpec.describe RailsApiDoc do
   TestCtrl = Class.new(ActionController::Base)
 
-  class TestParameter < RailsApiDoc::Params
+  class TestParams < RailsApiDoc::Params
 
     parameter :name, type: :string
 
@@ -17,7 +16,7 @@ RSpec.describe RailsApiDoc do
 
       expect(ctrl).to respond_to :ctrl_strong_params
 
-      expect(ctrl.ctrl_parameters).to be_a_kind_of(TestParameter)
+      expect(ctrl.ctrl_parameters).to eq TestParams
     end
 
     it 'Will return correct strong params from ctrl_strong_params' do
@@ -43,7 +42,7 @@ RSpec.describe RailsApiDoc do
 
       ctrl = TestCtrl.new
 
-      expect(ctrl.ctrl_parameters).to be_a_kind_of(NewTestParameter)
+      expect(ctrl.ctrl_parameters).to eq NewTestParameter
     end
 
     it 'Returns correct strong params' do

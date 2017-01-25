@@ -19,11 +19,11 @@ module RailsApiDoc::Params::DSL
   end
 
   def ctrl_strong_params
-    @ctrl_strong_params ||= ctrl_parameters.strong_params(params)
+    @ctrl_strong_params ||= strong_params(params_holder: ctrl_parameters)
   end
 
   def ctrl_parameters
-    @ctrl_parameters ||= self.class.parameter_class.new
+    @ctrl_parameters ||= self.class.parameter_class
   end
 
 end

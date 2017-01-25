@@ -8,14 +8,17 @@ module RailsApiDoc
         #
         # accepted_params for permit
         #
-        def params_to_permit(pars = params)
-          _next_nesting_level(pars, param_data: _permitted_params)
+        def params_to_permit(pars = params, params_holder: nil)
+          permitted_params = _permitted_params(params_holder)
+
+          _next_nesting_level(pars, param_data: permitted_params)
         end
 
         private
 
-        def _permitted_params
-          ::RailsApiDoc::Controller::Request::Repository[self.class]
+        def _permitted_params(params_holder = nil)
+          ::RailsApiDoc::Controller::Request::Repository
+            .params_for_klass(params_holder || self.class)
         end
 
         #

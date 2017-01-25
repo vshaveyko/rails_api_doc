@@ -3,7 +3,7 @@
 # :nodoc:
 class RailsApiDoc::Params::Finder
 
-  SUFFIX = 'Parameter'
+  SUFFIX = 'Params'
 
   def initialize(object)
     @object = object
