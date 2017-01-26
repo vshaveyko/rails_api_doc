@@ -57,7 +57,7 @@ module RailsApiDoc
             next if accepted_params.include?(param_name) || accepted_params.last.key?(param_name)
 
             if api_param_data.value&.respond_to?(:call)
-              params[param_name] = instance_eval(&api_param_data.value)
+              params[param_name] = instance_exec(params[param_name], &api_param_data.value)
             end
 
             controller_param = params[param_name]

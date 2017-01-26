@@ -7,8 +7,8 @@ module RailsApiDoc
 
         include RailsApiDoc::Controller::ResourceParams::PermittedParams # implements params_to_permit
 
-        def strong_params(pars = params, params_holder: nil)
-          permitted = params_to_permit(pars, params_holder: params_holder)
+        def strong_params(pars = params, options = {})
+          permitted = params_to_permit(pars, options)
 
           pars.permit(permitted)
         end

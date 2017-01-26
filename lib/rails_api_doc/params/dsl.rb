@@ -18,8 +18,8 @@ module RailsApiDoc::Params::DSL
     end
   end
 
-  def ctrl_strong_params
-    @ctrl_strong_params ||= strong_params(params_holder: ctrl_parameters)
+  def ctrl_strong_params(p = params)
+    @ctrl_strong_params ||= strong_params(p, params_holder: ctrl_parameters)
   end
 
   def ctrl_parameters
